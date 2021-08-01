@@ -56,30 +56,31 @@ $(function() {
                 $(".error5").text("Sai tài khoản hoặc mật khẩu");
             } else {
                 connect();
+                $(".user").css("display", 'none');
+                $(".active-user").css("display", 'block');
+                $(".inuser").text(" Admin");
+                $("#end").click();
             }
         }
     })
 
     function connect() {
-        $.ajax({
-            type: "POST",
-            url: "./backup.php",
-            cache: false,
-            data: {
-                username: $("#modalLRInput10").val(),
-                password: $("#modalLRInput11").val()
-            },
-            success: function(response) {
-                $("#end").click(),
-                    $(".user").css("display", 'none'),
-                    $(".active-user").css("display", 'block'),
-                    $(".inuser").text(" Admin"),
-                    $("#end").click(),
-                    $(".ketqua").text(response)
-            },
-            error: function() {
-                alert("Error");
-            }
-        });
+        // $.ajax({
+        //     type: "POST",
+        //     url: "./backup.php",
+        //     cache: false,
+        //     data: {
+        //         username: $("#modalLRInput10").val(),
+        //         password: $("#modalLRInput11").val()
+        //     },
+        //     success: function(response) {
+        //         $("#end").click(),
+
+        //             $(".ketqua").text(response)
+        //     },
+        //     error: function() {
+        //         alert("Error");
+        //     }
+        // });
     }
 })
