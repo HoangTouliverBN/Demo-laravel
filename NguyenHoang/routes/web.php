@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SachController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/book',function () {
+Route::get('/home',function () {
     return view('frontend.layout.section');
 });
+Route::get('quanlysach',[SachController::class,'index']);
+
+Route::resource('quanlysach',SachController::class);

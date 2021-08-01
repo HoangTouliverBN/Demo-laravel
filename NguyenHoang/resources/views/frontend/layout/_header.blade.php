@@ -21,7 +21,7 @@
 
                             <i class="fas fa-user"></i><span class="inuser"></span></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item DI" href="./Quanly/CRUD_category/">Sản phẩm</a>
+                            <a class="dropdown-item DI" href="{{url('quanlysach')}}">Sản phẩm</a>
                             <a class="dropdown-item DI" href="./Quanly/CRUD_dangky/">Đơn đăng ký</a>
 
                         </div>
