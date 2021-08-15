@@ -80,14 +80,14 @@
                 <div class="tab-content">
                     <!--Panel 7-->
                     <div class="tab-pane fade in show active" id="panel7" role="tabpanel" method="POST">
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="LoginForm">
                             <!--Body-->
+                            @csrf
                             <div class="modal-body mb-1">
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-user mr-1"></i>
                                     <input type="text" id="modalLRInput10" class="form-control form-control-sm validate" name="user">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput10">Số điện
-                                        thoại/Email:</label>
+                                    <label data-error="wrong" data-success="right" for="modalLRInput10">Email:</label>
                                     <p class="error4"></p>
                                 </div>
 
@@ -99,7 +99,7 @@
                                     <p class="error5"></p>
                                 </div>
                                 <div class="text-center mt-2">
-                                    <button class="btn btn-info dangnhap" type="submit" name="submit">Đăng nhập <i class="fas fa-sign-in ml-1"></i></button>
+                                    <button class="btn btn-info dangnhap" type="submit" name="LoginSubmit">Đăng nhập <i class="fas fa-sign-in ml-1"></i></button>
                                 </div>
                                 <div class="text-center mt-2">
                                     <button class="btn btn-info"><i class="fab fa-facebook-f"></i> Đăng nhập bằng
@@ -117,13 +117,14 @@
 
                     <!--Panel 8-->
                     <div class="tab-pane fade" id="panel8" role="tabpanel">
-                        <form action="">
+                        <form action="" method="POST" id="RegisterForm">
                             <!--Body-->
+                            @csrf
                             <div class="modal-body">
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-user mr-1"></i>
                                     <input type="text" id="modalLRInput12" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput12">Số điện thoại/Email:</label>
+                                    <label data-error="wrong" data-success="right" for="modalLRInput12">Email:</label>
                                     <p class="error1"></p>
                                 </div>
 
@@ -144,14 +145,14 @@
                                 </div>
 
                                 <div class="text-center form-sm mt-2">
-                                    <button type="submit" class="btn btn-info bdangky">Đăng ký<i class="fas fa-sign-in ml-1"></i></button>
+                                    <button type="submit" name="RegisterSubmit" class="btn btn-info bdangky">Đăng ký<i class="fas fa-sign-in ml-1"></i></button>
                                 </div>
 
                             </div>
                             <!--Footer-->
                             <div class="modal-footer">
                                 <div class="options text dangky2">
-                                    <p class="pt-1">Bằng việc đăng ký, bạn đã đồng ý với HONGNGOC.com về <a href="">Điều
+                                    <p class="pt-1">Bằng việc đăng ký, bạn đã đồng ý với NGUYENHOANG.com về <a href="">Điều
                                             khoản dịch vụ</a> & <a href="">Chính sách bảo mật</a>
                                     </p>
                                 </div>

@@ -1,7 +1,7 @@
 $(function() {
     $(".inuser").text("Tài khoản");
     $(".active-user").css("display", 'none');
-    $("form").submit(function(e) {
+    $("form#RegisterForm").submit(function(e) {
         e.preventDefault();
         let modal = $("#modalLRForm");
         let user = $("#modalLRInput12").val();
@@ -32,7 +32,8 @@ $(function() {
         }
     })
 
-    $('.dangnhap').click(function() {
+    $("form#LoginForm").submit(function(a) {
+        a.preventDefault();
         let taikhoan = $('#modalLRInput10').val();
         let matkhau = $('#modalLRInput11').val();
         let isvalid = true;
