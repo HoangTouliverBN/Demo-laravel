@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sach;
+use App\Rules\KhongBoTrong;
 use Illuminate\Http\Request;
+
 
 class SachController extends Controller
 {
 
     public function index()
     {
+        
         $ListSach = Sach::all();
         return view('quanlysach.index',compact('ListSach'));
     }
@@ -21,6 +24,17 @@ class SachController extends Controller
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'MS'=>[new KhongBoTrong()],
+            'TacGia'=>[new KhongBoTrong()],
+            'NSB'=>[new KhongBoTrong()],
+            'DonGia'=>[new KhongBoTrong()],
+            'SoLuong'=>[new KhongBoTrong()],
+            'TheLoai'=>[new KhongBoTrong()],
+            'TenSach'=>[new KhongBoTrong()],
+        ]);
+
         Sach::create($request->input());
         return redirect('quanlysach');
     }
@@ -37,6 +51,16 @@ class SachController extends Controller
 
     public function update(Sach $quanlysach,Request $request)
     {
+        $request->validate([
+            'MS'=>[new KhongBoTrong()],
+            'TacGia'=>[new KhongBoTrong()],
+            'NSB'=>[new KhongBoTrong()],
+            'DonGia'=>[new KhongBoTrong()],
+            'SoLuong'=>[new KhongBoTrong()],
+            'TheLoai'=>[new KhongBoTrong()],
+            'TenSach'=>[new KhongBoTrong()],
+        ]);
+
         $quanlysach->update($request->input());
         return redirect(url('quanlysach'));
     }

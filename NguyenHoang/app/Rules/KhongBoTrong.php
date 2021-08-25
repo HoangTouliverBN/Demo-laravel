@@ -2,10 +2,10 @@
 
 namespace App\Rules;
 
-
+use Facade\FlareClient\Flare;
 use Illuminate\Contracts\Validation\Rule;
 
-class EmailCheck implements Rule
+class KhongBoTrong implements Rule
 {
     /**
      * Create a new rule instance.
@@ -26,10 +26,11 @@ class EmailCheck implements Rule
      */
     public function passes($attribute, $value)
     {
-        if($value)
+        if($value=='')
         {
-            
+            return false;
         }
+        return true;
     }
 
     /**
@@ -39,6 +40,6 @@ class EmailCheck implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'Không bỏ trống trường này';
     }
 }

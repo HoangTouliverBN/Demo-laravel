@@ -14,4 +14,5 @@ class Sach extends Model
     protected $primaryKey = 'STT';
 
     protected $fillable = ['MS','TenSach','TacGia','NSB','SoLuong','DonGia','TheLoai'];
+
 }

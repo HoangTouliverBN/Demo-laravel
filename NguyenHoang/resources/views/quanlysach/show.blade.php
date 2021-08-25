@@ -2,8 +2,9 @@
 
 @section('content')
 
-<h1>Thông tin chi tiết</h1>
-<div>
+<div class="container">
+    <h1 class="text-center">Thông tin chi tiết</h1>
+<div >
     <div>
         <h3>STT</h3>
         <p>{{$quanlysach->STT}}</p>
@@ -57,4 +58,5 @@
 
     <a href="{{url('quanlysach')}}" class="btn btn-primary">Back</a>
 </div>    
+</div>
 @endsection

@@ -3,6 +3,9 @@
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\SachController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,18 +22,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',function () {
+Route::get('/home', function () {
     return view('frontend.layout.section');
 });
-Route::get('quanlysach',[SachController::class,'index']);
 
-Route::resource('quanlysach',SachController::class);
+Route::get('quanlysach', [SachController::class, 'index']);
+Route::resource('quanlysach', SachController::class);
+
 
 //register
-Route::get('register',[AuthenticateController::class,'ShowRegister']);
-Route::post('register',[AuthenticateController::class,'Register']);
+Route::get('register', [AuthenticateController::class, 'ShowRegister']);
+Route::post('register', [AuthenticateController::class, 'Register']);
 
 //login
-Route::get('/login',[AuthenticateController::class,'ShowLogin']);
-Route::post('/login',[AuthenticateController::class,'authenticate']);
-Route::get('/logout',[AuthenticateController::class,'logout']);
+Route::get('/login', [AuthenticateController::class, 'ShowLogin']);
+Route::post('/login', [AuthenticateController::class, 'authenticate']);
+Route::get('/logout', [AuthenticateController::class, 'logout']);

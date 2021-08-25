@@ -1,8 +1,8 @@
 @extends('frontend.layout.admin')
 
 @section('content')
-<div class="">
-    <h1>Danh sách sản phẩm</h1>
+<div >
+    <h1 class="text-center">Danh sách sản phẩm</h1>
     <div>
         <a href="{{url('quanlysach/create')}}" class="btn btn-success">+ Thêm mới</a>
     </div>
@@ -42,5 +42,6 @@
             </tr>
         @endforeach
     </tbody>
+    {{!! $ListSach->link() !!}}
     
 @endsection
