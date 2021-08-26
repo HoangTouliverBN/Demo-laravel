@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="{{url('quanlysach/'.$quanlysach->STT)}}" method="POST">
+    <form action="{{url('quanlysach/'.$quanlysach->STT)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -65,8 +65,21 @@
             <p class="error">@error('SoLuong')
                 {{$message}}
                 @enderror</p>
-
         </div>
+
+        <div class="form-group">
+            <label for="AnhSP">Ảnh sản phẩm</label>
+            <input type="file" name="AnhSP" class="form-control" id="AnhSP" value="{{$quanlysach->AnhSP}}">
+            <p class="error">
+                @error('AnhSP')
+                {{$message}}
+            @enderror
+            </p>
+            <div>
+                <img src="{{ Storage::disk('AnhSach')->url($quanlysach->AnhSP) }}" alt="">
+            </div>
+        </div>
+
 
         <button type="submit" name="submit" class="btn btn-primary">Cập nhật</button>
         <a href="{{url('quanlysach')}}" class="btn btn-primary">Quay lại</a>

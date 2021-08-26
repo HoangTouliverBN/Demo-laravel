@@ -22,6 +22,7 @@ class CreateSachTable extends Migration
             $table->integer('SoLuong');
             $table->integer('DonGia');
             $table->string('TheLoai');
+            $table->string('AnhSP');
             $table->timestamps();
         });
     }

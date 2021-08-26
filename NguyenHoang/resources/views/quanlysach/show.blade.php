@@ -56,6 +56,11 @@
         <p>{{$quanlysach->updated_at}}</p>
     </div>
 
+    <div>
+        <h3>Ảnh sản phẩm</h3>
+        <img src="{{ Storage::disk('AnhSach')->url($quanlysach->AnhSP) }}" alt="">
+    </div><br>
+
     <a href="{{url('quanlysach')}}" class="btn btn-primary">Back</a>
 </div>    
 </div>

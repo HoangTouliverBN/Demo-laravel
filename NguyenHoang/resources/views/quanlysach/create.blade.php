@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ url('quanlysach') }}" method="POST" enctype="multipart/form-datag">
+        <form action="{{ url('quanlysach') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="MS">Mã sách:</label>

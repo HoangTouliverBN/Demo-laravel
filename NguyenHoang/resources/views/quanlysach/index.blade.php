@@ -42,6 +42,6 @@
             </tr>
         @endforeach
     </tbody>
-    {{!! $ListSach->link() !!}}
+    {{-- {{!! $ListSach->link() !!}} --}}
     
 @endsection

@@ -33,9 +33,20 @@ class SachController extends Controller
             'SoLuong'=>[new KhongBoTrong()],
             'TheLoai'=>[new KhongBoTrong()],
             'TenSach'=>[new KhongBoTrong()],
+            'AnhSP'=>'required|image',
         ]);
+        $file = $request->file('AnhSP');
+        $fileName = $file->getClientOriginalName();
 
-        Sach::create($request->input());
+
+
+        $check =  Sach::create(array_merge($request->input(),[
+            'AnhSP'=>$fileName,
+        ]));
+        if($check){
+            $file->storeAS('',$fileName,'AnhSach');
+        }
+
         return redirect('quanlysach');
     }
 
@@ -59,9 +70,25 @@ class SachController extends Controller
             'SoLuong'=>[new KhongBoTrong()],
             'TheLoai'=>[new KhongBoTrong()],
             'TenSach'=>[new KhongBoTrong()],
-        ]);
+            'AnhSP'=>'image',
 
-        $quanlysach->update($request->input());
+        ]);
+        $fileCheck = $request->hasFile('AnhSP');
+        if($fileCheck){
+            $file = $request->file('AnhSP');
+            $fileName = $file->getClientOriginalName();
+        } else{
+            $fileName = $quanlysach->AnhSP;
+        }
+        
+
+
+        $check = $quanlysach->update(array_merge($request->input(),[
+            'AnhSP' => $fileName,
+        ]));
+        if($check && $fileCheck){
+            $file->storeAS('',$fileName,'AnhSach');
+        }
         return redirect(url('quanlysach'));
     }
 
