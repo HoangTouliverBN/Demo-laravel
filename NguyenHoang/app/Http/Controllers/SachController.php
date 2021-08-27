@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sach;
 use App\Rules\KhongBoTrong;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 
 class SachController extends Controller
@@ -13,7 +14,7 @@ class SachController extends Controller
     public function index()
     {
         
-        $ListSach = Sach::all();
+        $ListSach = Sach::paginate(1);
         return view('quanlysach.index',compact('ListSach'));
     }
 

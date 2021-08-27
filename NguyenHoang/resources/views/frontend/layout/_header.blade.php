@@ -42,16 +42,9 @@
             <li>
                 <a href="#">Giới thiệu</a>
             </li>
+
             <li>
-                <a href="#">Sản phẩm<i class="fas fa-sort-down"></i>
-                    
-                </a>
-            </li>
-            <li>
-                <a href="#">Tin tức</a>
-            </li>
-            <li>
-                <a href="#">Liên hệ</a>
+                <a href="#bottom" class="LienHe">Liên hệ</a>
             </li>
         </ul>
     </div>
