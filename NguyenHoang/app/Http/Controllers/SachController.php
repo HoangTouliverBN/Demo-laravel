@@ -14,7 +14,7 @@ class SachController extends Controller
     public function index()
     {
         
-        $ListSach = Sach::paginate(1);
+        $ListSach = Sach::paginate(10);
         return view('quanlysach.index',compact('ListSach'));
     }
 

@@ -3,7 +3,8 @@
 
 @section('content')
 <div class="bg-light text-dark login">
-    <form action="{{url('register')}}" class="login-form container" method="POST">
+    <h1 class="text-center">Tạo tài khoản Admin</h1>
+    <form action="{{url('register-admin')}}" class="login-form container" method="POST">
         @csrf
             <div class="form-group">
                 <label for="email">Tài khoản:</label>
@@ -32,11 +33,14 @@
             <p class="text-danger">{{$message}}</p>
             @enderror
 
+            {{-- <div class="d-none">
+                <input type="id_phanquyen" id="id_phanquyen" name="id_phanquyen" class="form-control phanquyen" value="1">
+            </div> --}}
+
             <div class="text-center ">
                 <button type="submit" class="btn-submit btn btn-primary">Đăng ký</button>
             </div>
 
-    <a href="{{url('login')}}">Bạn đã có tài khoản?</a>       
     </form>
 </div>
 @endsection

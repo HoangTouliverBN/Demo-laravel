@@ -22,10 +22,11 @@ class AuthenticateController extends Controller
             'name'=>['required'],
             'password'=>['required'],
         ]);
+        User::create(array_merge($request->input(),[
+            'id_phanquyen'=>1,
+        ]));
 
-        User::create($request->input());
-
-        return view('login-register.login');
+        return redirect('login');
     }
 
     // Login
@@ -57,6 +58,25 @@ class AuthenticateController extends Controller
     public function logout()
     {
         Auth::logout();
+        return redirect('home');
+    }
+
+    public function ShowRegisterAdmin()
+    {
+        return view('login-register.register-admin');
+    }
+
+    public function RegisterAdmin(Request $request)
+    {
+        $request->validate([
+            'email'=>['required','email','unique:users,email'],
+            'name'=>['required'],
+            'password'=>['required'],
+        ]);
+        User::create(array_merge($request->input(),[
+            'id_phanquyen'=>2,
+        ]));
+
         return redirect('home');
     }
 }

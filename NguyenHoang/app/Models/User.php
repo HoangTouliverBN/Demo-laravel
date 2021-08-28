@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'id_phanquyen',
     ];
 
     /**
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         return $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function phanquyen()
+    {
+        return $this->belongsTo(PhanQuyen::class);
     }
 }

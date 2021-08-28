@@ -19,8 +19,13 @@
                         <a class="btn btn-secondary dropdown-toggle active-user" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i><span class="inuser"> {{Auth::user()->name}}</span></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            @if (Auth::user()->id_phanquyen==2||Auth::user()->id_phanquyen==3)
                             <a class="dropdown-item DI" href="{{url('quanlysach')}}">Sản phẩm</a>
                             <a class="dropdown-item DI" href="">Đơn đăng ký</a>
+                            @endif
+                            @if (Auth::user()->id_phanquyen==3)
+                            <a class="dropdown-item DI" href="{{url('register-admin')}}">Thêm tài khoản admin</a>
+                            @endif
                             <a class="dropdown-item DI" href="{{url('logout')}}">Đăng xuất</a>
                         </div>
                         @else
