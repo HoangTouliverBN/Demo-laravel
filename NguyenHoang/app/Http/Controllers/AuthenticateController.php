@@ -23,7 +23,7 @@ class AuthenticateController extends Controller
             'password'=>['required'],
         ]);
         User::create(array_merge($request->input(),[
-            'id_phanquyen'=>1,
+            'id_phanquyen'=>2,
         ]));
 
         return redirect('login');

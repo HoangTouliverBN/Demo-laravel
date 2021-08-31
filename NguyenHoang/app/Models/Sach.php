@@ -13,6 +13,10 @@ class Sach extends Model
 
     protected $primaryKey = 'STT';
 
-    protected $fillable = ['MS','TenSach','TacGia','NSB','SoLuong','DonGia','TheLoai','AnhSP'];
+    protected $fillable = ['MS','TenSach','TacGia','NSB','SoLuong','DonGia','TheLoai','AnhSP','Id_TheLoai'];
 
+    public function theloaisach()
+    {
+        return $this->belongsTo(TheLoaiSach::class);
+    }
 }

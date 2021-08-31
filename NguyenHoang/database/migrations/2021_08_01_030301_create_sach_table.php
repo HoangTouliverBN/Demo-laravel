@@ -23,7 +23,12 @@ class CreateSachTable extends Migration
             $table->integer('DonGia');
             $table->string('TheLoai');
             $table->string('AnhSP');
+            $table->integer('Id_TheLoai')->unsigned();
             $table->timestamps();
+
+
+            $table->foreign('Id_TheLoai')->references('id')->on('theloaisach');
+
         });
     }
 

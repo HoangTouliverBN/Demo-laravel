@@ -38,11 +38,27 @@ class SachController extends Controller
         ]);
         $file = $request->file('AnhSP');
         $fileName = $file->getClientOriginalName();
+        $id_theloai = 3;
+        $Theloai = '';
+        $Theloai = $request->input('TheLoai');
 
-
+        switch ($Theloai) {
+            case 'Văn học':
+                $id_theloai = 1;
+                break;
+            
+            case 'Tâm lý':
+                $id_theloai = 2;
+                break;
+            
+            default:
+                $id_theloai = 3;
+                break;
+        }
 
         $check =  Sach::create(array_merge($request->input(),[
             'AnhSP'=>$fileName,
+            'Id_TheLoai'=>$id_theloai,
         ]));
         if($check){
             $file->storeAS('',$fileName,'AnhSach');
@@ -82,10 +98,27 @@ class SachController extends Controller
             $fileName = $quanlysach->AnhSP;
         }
         
+        $id_theloai = 3;
+        $Theloai = '';
+        $Theloai = $request->input('TheLoai');
 
+        switch ($Theloai) {
+            case 'Văn học':
+                $id_theloai = 1;
+                break;
+            
+            case 'Tâm lý':
+                $id_theloai = 2;
+                break;
+            
+            default:
+                $id_theloai = 3;
+                break;
+        }
 
         $check = $quanlysach->update(array_merge($request->input(),[
             'AnhSP' => $fileName,
+            'Id_TheLoai'=>$id_theloai,
         ]));
         if($check && $fileCheck){
             $file->storeAS('',$fileName,'AnhSach');

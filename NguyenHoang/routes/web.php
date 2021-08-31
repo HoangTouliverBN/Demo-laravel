@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\SachController;
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,9 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('frontend.layout.section');
-});
+// Route::get('/home', function () {
+//     return view('frontend.layout.section');
+// });
+Route::get('/home',[WebController::class, 'all']);
 
 Route::middleware(['checklogin'])->group(function () {
         //register

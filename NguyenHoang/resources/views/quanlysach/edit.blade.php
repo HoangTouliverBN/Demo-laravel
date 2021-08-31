@@ -42,11 +42,18 @@
 
         <div class="form-group">
             <label for="TheLoai">Thể loại:</label>
-            <input type="text" name="TheLoai" class="form-control" id="TheLoai" value="{{$quanlysach->TheLoai}}">
+            <select name="TheLoai" id="TheLoai" class="form-control">
+                <option value="{{$quanlysach->TheLoai}}">{{$quanlysach->TheLoai}}</option>
+                <option value="Văn học">Văn học</option>
+                <option value="Tâm lý">Tâm lý</option>
+                <option value="khác">Khác</option>
+            </select>
 
-            <p class="error"@error('TheLoai')
-            {{$message}}
-            @enderror></p>
+            <p class="error">
+                @error('TheLoai')
+                {{$message}}
+            @enderror
+            </p>
 
         </div>
 
