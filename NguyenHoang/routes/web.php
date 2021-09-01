@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SachController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,11 @@ Route::get('home/{theloai}',[WebController::class,'ShowAll']);
     // Search
 Route::post('/home/search',[WebController::class, 'Search']);
 Route::get('/home/search/{search}',[WebController::class, 'ValueSearch']);
+
+
+// order
+Route::post('home/order',[OrderController::class,'Order']);
+
 
 
 // login-register

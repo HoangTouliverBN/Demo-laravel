@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(PhanQuyen::class);
     }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
 }

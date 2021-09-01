@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sach;
 use App\Models\TheLoaiSach;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -50,6 +51,10 @@ class WebController extends Controller
 
     public function Search(Request $request)
     {
+
+        $request->validate([
+            'search'=>'required',
+        ]);
 
         $search = $request->input('search');
 
