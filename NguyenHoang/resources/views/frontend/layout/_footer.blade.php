@@ -1,7 +1,7 @@
 <footer>
     <div class="dangky">
         <label for="dk">ĐĂNG KÍ MUA SÁCH</label>
-        <input type="email" id="dk" name="dk" placeholder="Nhập địa chỉ email của bạn"><a href="./Đăng ký mua sách.php">Đăng ký</a>
+        <input type="email" id="dk" name="dk" placeholder="Nhập sản phẩm muốn order"><a href="./Đăng ký mua sách.php">Đăng ký</a>
     </div>
     <div class="container">
         <div class="contact row">
