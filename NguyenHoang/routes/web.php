@@ -29,6 +29,10 @@ Route::get('home/detail/{detail}',[WebController::class,'ShowDetail']);
 Route::get('home/{theloai}',[WebController::class,'ShowAll']);
 
 
+    // Search
+Route::post('/home/search',[WebController::class, 'Search']);
+Route::get('/home/search/{search}',[WebController::class, 'ValueSearch']);
+
 
 // login-register
 Route::middleware(['checklogin'])->group(function () {

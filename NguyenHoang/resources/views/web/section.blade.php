@@ -10,7 +10,7 @@
     </div>
 
     <div class="container">
-        <div class="row card-group gtf">
+        <div class="row gtf">
             @foreach ( $VanHoc as $SachVanHoc)
             <div class="col-md-4 card gt">
                 <a href="{{url('home/detail/'.$SachVanHoc->STT)}}"><img src="{{Storage::disk('AnhSach')->url($SachVanHoc->AnhSP)}}" class="card-img-top" alt="..."></a>
@@ -35,7 +35,7 @@
     </div>
 
     <div class="container">
-        <div class="row card-group gtf">
+        <div class="row gtf">
             @foreach ( $TamLy as $SachTamLy)
             <div class="col-md-4 card gt">
                 <a href="{{url('home/detail/'.$SachTamLy->STT)}}"><img src="{{Storage::disk('AnhSach')->url($SachTamLy->AnhSP)}}" class="card-img-top" alt="..."></a>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="container">
-        <div class="row card-group gtf">
+        <div class="row gtf">
             @foreach ( $Khac as $SachKhac)
             <div class="col-md-4 card gt">
                 <a href="{{url('home/detail/'.$SachKhac->STT)}}}}"><img src="{{Storage::disk('AnhSach')->url($SachKhac->AnhSP)}}" class="card-img-top" alt="..."></a>

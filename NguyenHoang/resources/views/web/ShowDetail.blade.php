@@ -15,6 +15,7 @@
                     <p class="card-text">Tác giả: {{$detail->TacGia}}</p>
                     <p class="card-text">Nhà suất bản: {{$detail->NSB}}</p>
                     <p class="card-text">Giá: {{ $detail->DonGia }}</p>
+                    <p class="card-text">Tình trạng: {{$TinhTrang}} </p>
                     <a href="#" class=" btn btn-primary">Thêm vào giỏ hàng</a>
                 </div>
             </div>

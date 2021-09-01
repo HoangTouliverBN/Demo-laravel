@@ -9,7 +9,9 @@ a {
 
 .bsearch {
     color: black !important;
-    margin-right: 5px;
+    margin: 0px;
+    border: none;
+    background-color: white;
 }
 
 a:hover {

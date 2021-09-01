@@ -9,7 +9,12 @@
 
         <div class="col-md-6 navr">
             <ul>
-                <li class="search"><input type="text" id="search" name="search" placeholder="Tìm kiếm "><a class="bsearch" href="./timkiem.php"><i class="fas fa-search"></i></a></i></li>
+                <form action="{{url('home/search')}}" method="POST">
+                    <li class="search"><input type="text" id="search" name="search" placeholder="Tìm kiếm ">
+                        @csrf
+                        <button class="bsearch" type="submit"><i class="fas fa-search"></i></button>
+                    </li>
+                </form>
                 <li>
                     <a href="#"><i class="fas fa-shopping-cart"></i>Giỏ hàng</a>
                 </li>

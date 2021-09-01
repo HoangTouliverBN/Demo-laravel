@@ -18,7 +18,12 @@ class WebController extends Controller
 
     public function showDetail(Sach $detail)
     {
-        return view('web.ShowDetail',compact('detail'));
+        if($detail->SoLuong > 0){
+            $TinhTrang = "Còn hàng";
+        } else {
+            $TinhTrang = "Hết hàng";
+        }
+        return view('web.ShowDetail',compact('detail','TinhTrang'));
     }
 
     public function ShowAll($theloai)
@@ -39,5 +44,20 @@ class WebController extends Controller
                         $Sachs = Sach::where('Id_TheLoai','3')->paginate(9);
                         return view('web.ShowAll',compact('Sachs','TheLoai'));
         }
+    }
+
+
+
+    public function Search(Request $request)
+    {
+
+        $search = $request->input('search');
+
+        return redirect('home/search/'.$search);
+    }
+    public function ValueSearch($search)
+    {
+        $Sachs = Sach::where('TenSach','like','%'.$search.'%')->paginate(9);
+        return view('web.Search',compact('search','Sachs'));
     }
 }
