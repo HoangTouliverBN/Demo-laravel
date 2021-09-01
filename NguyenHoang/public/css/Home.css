@@ -321,3 +321,7 @@ input {
 .DI {
     color: black !important;
 }
+
+.show-detail {
+    padding: 50px 0px;
+}

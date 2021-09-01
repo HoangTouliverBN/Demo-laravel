@@ -14,7 +14,30 @@ class WebController extends Controller
         $TamLy = Sach::where('Id_TheLoai','2')->paginate(3);
         $Khac = Sach::where('Id_TheLoai','3')->paginate(3);
         return view('web.section',compact('VanHoc','TamLy','Khac'));
+    }
 
+    public function showDetail(Sach $detail)
+    {
+        return view('web.ShowDetail',compact('detail'));
+    }
 
+    public function ShowAll($theloai)
+    {
+        switch ($theloai) {
+            case 'vanhoc':
+                $TheLoai = 'SÁCH VĂN HỌC';
+                $Sachs = Sach::where('Id_TheLoai','1')->paginate(9);
+                return view('web.ShowAll',compact('Sachs','TheLoai'));
+
+                case 'tamly':
+                    $TheLoai = 'SÁCH TÂM LÝ';
+                    $Sachs = Sach::where('Id_TheLoai','2')->paginate(9);
+                    return view('web.ShowAll',compact('Sachs','TheLoai'));
+
+                    case 'khac':
+                        $TheLoai = 'SÁCH VĂN HỌC';
+                        $Sachs = Sach::where('Id_TheLoai','3')->paginate(9);
+                        return view('web.ShowAll',compact('Sachs','TheLoai'));
+        }
     }
 }

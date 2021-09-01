@@ -52,7 +52,7 @@
                     <option value=""></option>
                     <option value="Văn học">Văn học</option>
                     <option value="Tâm lý">Tâm lý</option>
-                    <option value="khác">Khác</option>
+                    <option value="Khác">Khác</option>
                 </select>
 
                 <p class="error">

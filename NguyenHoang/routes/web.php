@@ -23,13 +23,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/home', function () {
-//     return view('frontend.layout.section');
-// });
+// WEB
 Route::get('/home',[WebController::class, 'all']);
+Route::get('home/detail/{detail}',[WebController::class,'ShowDetail']);
+Route::get('home/{theloai}',[WebController::class,'ShowAll']);
 
+
+
+// login-register
 Route::middleware(['checklogin'])->group(function () {
-        //register
+//register
 Route::get('register', [AuthenticateController::class, 'ShowRegister']);
 Route::post('register', [AuthenticateController::class, 'Register']);
 
