@@ -59,6 +59,12 @@ return [
             'url' => env('APP_URL').'/storage/AnhSach',
             'visibility' => 'public',
         ],
+        'Avatar' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/Avatar'),
+            'url' => env('APP_URL').'/storage/Avatar',
+            'visibility' => 'public',
+        ]
     ],
 
     /*

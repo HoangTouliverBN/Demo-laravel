@@ -20,6 +20,7 @@ class CreateUserInfomartionTable extends Migration
             $table->dateTime('birthday');
             $table->string('phone_number');
             $table->string('address');
+            $table->string('avatar');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 

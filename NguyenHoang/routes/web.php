@@ -72,3 +72,8 @@ Route::get('/send', function () {
 
     Mail::to('cuhoang2000bn@gmail.com')->send(new EmailSent());
 });
+
+
+// user_information
+Route::get('user-information',[AuthenticateController::class,'ShowFormInformation']);
+Route::post('user-information',[AuthenticateController::class,'UpdateInformation']);

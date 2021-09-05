@@ -14,7 +14,6 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$Sach->TenSach}}</h5>
                     <p class="card-text"><span>{{$Sach->DonGia}}</span> VNĐ</p>
-
                 </div>
             </div>
             @endforeach

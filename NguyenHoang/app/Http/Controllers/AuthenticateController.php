@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
+use App\Models\user_information;
 
 class AuthenticateController extends Controller
 {
@@ -78,5 +78,19 @@ class AuthenticateController extends Controller
         ]));
 
         return redirect('home');
+    }
+
+
+    public function ShowFormInformation()
+    {
+        return view('user.update_information');
+    }
+
+    public function UpdateInformation(user_information $user_information,Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $check = user_information::where('user_id', Auth::user()->id);
+
+        return $user_id;
     }
 }
