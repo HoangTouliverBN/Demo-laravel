@@ -4,10 +4,10 @@ use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SachController;
 use App\Http\Controllers\WebController;
+use App\Mail\EmailSent;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
-
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +20,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 // WEB
+Route::get('/',[WebController::class, 'all']);
 Route::get('/home',[WebController::class, 'all']);
 Route::get('home/detail/{detail}',[WebController::class,'ShowDetail']);
 Route::get('home/{theloai}',[WebController::class,'ShowAll']);
@@ -63,4 +61,14 @@ Route::resource('quanlysach', SachController::class);
 Route::middleware(['auth', 'master'])->group(function () {
     Route::get('register-admin', [AuthenticateController::class, 'ShowRegisterAdmin']);
     Route::post('register-admin', [AuthenticateController::class, 'RegisterAdmin']);
+});
+
+
+Route::get('/preview', function ($id) {
+    
+});
+
+Route::get('/send', function () {
+
+    Mail::to('cuhoang2000bn@gmail.com')->send(new EmailSent());
 });

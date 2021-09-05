@@ -70,6 +70,15 @@ return [
         'array' => [
             'transport' => 'array',
         ],
+
+        'mailtrap' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST'),
+            'port' => env('MAIL_PORT'),
+            'username' => env('MAIL_USERNAME'),
+            'password' => env('Mail_PASSWORD'),
+            'encryption' => env('MAIL_ENCRYPTION','tls'),
+        ]
     ],
 
     /*
@@ -84,7 +93,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'nguyenhoang23112000bn@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
