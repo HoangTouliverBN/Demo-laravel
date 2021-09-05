@@ -75,5 +75,6 @@ Route::get('/send', function () {
 
 
 // user_information
-Route::get('user-information',[AuthenticateController::class,'ShowFormInformation']);
-Route::post('user-information',[AuthenticateController::class,'UpdateInformation']);
+Route::get('user-information',[AuthenticateController::class,'UserInformartion']);
+Route::get('update-information',[AuthenticateController::class,'ShowFormInformation']);
+Route::post('update-information',[AuthenticateController::class,'UpdateInformation']);
