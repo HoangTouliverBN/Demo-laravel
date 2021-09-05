@@ -14,17 +14,20 @@ class CreateUserInformationTable extends Migration
     public function up()
     {
         Schema::create('user_information', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('user_id')->unsigned();
             $table->string('first_name');
             $table->string('last_name');
-            $table->dateTime('birthday');
+            $table->date('birthday')->nullable();
             $table->string('phone_number');
             $table->string('address');
             $table->string('avatar');
-            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            
         });
     }
 

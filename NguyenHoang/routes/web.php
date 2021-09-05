@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SachController;
+use App\Http\Controllers\UserInformationController;
 use App\Http\Controllers\WebController;
 use App\Mail\EmailSent;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,6 @@ Route::get('/send', function () {
 
 
 // user_information
-Route::get('user-information',[AuthenticateController::class,'UserInformartion']);
-Route::get('update-information',[AuthenticateController::class,'ShowFormInformation']);
-Route::post('update-information',[AuthenticateController::class,'UpdateInformation']);
+Route::get('user-information',[UserInformationController::class,'UserInformartion']);
+Route::get('update-information',[UserInformationController::class,'ShowFormInformation']);
+Route::post('update-information',[UserInformationController::class,'UpdateInformation']);
