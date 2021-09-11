@@ -27,6 +27,7 @@ a:hover {
 .navl {
     color: #ffc000;
     display: flex;
+    padding-left: 100px;
 }
 
 .navl p {
@@ -330,4 +331,11 @@ input {
 
 .show-detail {
     padding: 50px 0px;
+}
+/* .logo-left{
+    margin-left: 100px;
+} */
+.btn-changePassword{
+    border-radius: 20px;
+    font-size: 20px;
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\SachController;
+use App\Http\Controllers\TheLoaiSachController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,3 +19,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+//admin
+Route::middleware(['auth','phanquyen'])->group(function () {
+    Route::get('quanlysach', [SachController::class, 'index']);
+    // quản lý sách
+Route::resource('quanlysach', SachController::class);
+
+// quản lý thể loại
+Route::resource('quanlytheloai', TheLoaiSachController::class);
+
+});
+Route::middleware(['auth', 'master'])->group(function () {
+    Route::get('register-admin', [AuthenticateController::class, 'ShowRegisterAdmin']);
+    Route::post('register-admin', [AuthenticateController::class, 'RegisterAdmin']);
+});

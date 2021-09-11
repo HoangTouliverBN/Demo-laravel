@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\user_information;
+use App\Rules\CheckPassword;
 use Symfony\Component\Console\Input\Input;
+use App\Http\Controllers\Hash;
 
 class AuthenticateController extends Controller
 {
@@ -79,7 +81,30 @@ class AuthenticateController extends Controller
         return redirect('home');
     }
 
+    public function ShowChangePassword()
+    {
+        return view('login-register.changePassword');
+    }
 
+    public function ChangePassword(User $user,Request $request)
+    {
 
+        $request->validate([
+            'oldPassword' => ['required',new CheckPassword],
+            'Password' => 'required',
+            'rePassword' => ['required','same:Password'],
+        ]);
 
+        $newPassword = $request->input('Password');
+        // $user_id = Auth::user()->id;
+        // $password = Hash::make($newPassword);
+        // $user->find($user_id);
+        // $user->update([
+        //     'password'=>$password
+        // ]);
+
+        return $user;
+        
+
+    }
 }

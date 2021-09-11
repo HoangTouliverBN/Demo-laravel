@@ -13,7 +13,7 @@
                 <a href="{{url('home/detail/'.$Sach->STT)}}"><img src="{{Storage::disk('AnhSach')->url($Sach->AnhSP)}}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                     <h5 class="card-title">{{$Sach->TenSach}}</h5>
-                    <p class="card-text"><span>{{$Sach->DonGia}}</span> VNĐ</p>
+                    <p class="card-text"><span>{{number_format($Sach->DonGia,0,"",".");}}</span> VNĐ</p>
 
                 </div>
             </div>

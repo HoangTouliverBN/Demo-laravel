@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sach;
+use App\Models\TheLoaiSach;
 use App\Rules\KhongBoTrong;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -15,12 +16,14 @@ class SachController extends Controller
     {
         
         $ListSach = Sach::paginate(10);
-        return view('quanlysach.index',compact('ListSach'));
+        $active = "active";
+        return view('backend.quanlysach.index',compact('ListSach'));
     }
 
-    public function create()
+    public function create(TheLoaiSach $ListTheLoai)
     {
-        return view('quanlysach.create');
+        $ListTheLoai = TheLoaiSach::all();
+        return view('backend.quanlysach.create',compact('ListTheLoai'));
     }
 
     public function store(Request $request)
@@ -56,6 +59,7 @@ class SachController extends Controller
                 break;
         }
 
+
         $check =  Sach::create(array_merge($request->input(),[
             'AnhSP'=>$fileName,
             'Id_TheLoai'=>$id_theloai,
@@ -69,12 +73,13 @@ class SachController extends Controller
 
     public function show(Sach $quanlysach)
     {
-        return view('quanlysach.show',compact('quanlysach'));
+        return view('backend.quanlysach.show',compact('quanlysach'));
     }
 
     public function edit(Sach $quanlysach)
     {
-        return view('quanlysach.edit',compact('quanlysach'));
+        $ListTheLoai = TheLoaiSach::all();
+        return view('backend.quanlysach.edit',compact('quanlysach','ListTheLoai'));
     }
 
     public function update(Sach $quanlysach,Request $request)

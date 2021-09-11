@@ -9,6 +9,8 @@ class TheLoaiSach extends Model
 {
     use HasFactory;
     protected $table = 'theloaisach';
+
+    protected $fillable = ['TheLoai'];
     public function sachs()
     {
         return $this->hasMany(Sach::class, 'Id_TheLoai');

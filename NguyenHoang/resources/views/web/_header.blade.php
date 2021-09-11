@@ -1,6 +1,6 @@
-<header>
+<header >
     <div class="row navfirst">
-        <div class="col-md-6 navl">
+        <div class="col-md-6 navl ">
             <h1><a href="{{url('home')}}">NGUYEN HOANG</a></h1>
             <div>
                 <p>Hotline: 1800 1000</p>
@@ -27,12 +27,13 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a href="{{url('user-information')}}" class="dropdown-item DI">Thông tin cá nhân</a>
                             @if (Auth::user()->id_phanquyen==2||Auth::user()->id_phanquyen==3)
-                            <a class="dropdown-item DI" href="{{url('quanlysach')}}">Sản phẩm</a>
+                            <a class="dropdown-item DI" href="{{url('quanlysach')}}">Quản lý</a>
                             <a class="dropdown-item DI" href="">Đơn đăng ký</a>
                             @endif
                             @if (Auth::user()->id_phanquyen==3)
                             <a class="dropdown-item DI" href="{{url('register-admin')}}">Thêm tài khoản admin</a>
                             @endif
+                            <a class="dropdown-item DI" href="{{url('changePassword')}}">Đổi mật khẩu</a>
                             <a class="dropdown-item DI" href="{{url('logout')}}">Đăng xuất</a>
                         </div>
                         @else

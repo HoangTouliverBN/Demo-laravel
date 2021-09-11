@@ -37,7 +37,7 @@
 
     <div>
         <h3>Đơn giá</h3>
-        <p>{{$quanlysach->DonGia}}</p>
+        <p>{{number_format($quanlysach->DonGia,0,"",".");}}</p>
     </div>
 
     <div>
@@ -61,7 +61,7 @@
         <img src="{{ Storage::disk('AnhSach')->url($quanlysach->AnhSP) }}" alt="">
     </div><br>
 
-    <a href="{{url('quanlysach')}}" class="btn btn-primary">Back</a>
+    <a href="{{url('quanlysach')}}" class="btn btn-primary">Quay lại</a>
 </div>    
 </div>
 @endsection

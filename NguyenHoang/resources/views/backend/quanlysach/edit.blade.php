@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <h1 class="text-center">Cập nhật sản phẩm</h1>
+
     <form action="{{url('quanlysach/'.$quanlysach->STT)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -44,9 +46,9 @@
             <label for="TheLoai">Thể loại:</label>
             <select name="TheLoai" id="TheLoai" class="form-control">
                 <option value="{{$quanlysach->TheLoai}}">{{$quanlysach->TheLoai}}</option>
-                <option value="Văn học">Văn học</option>
-                <option value="Tâm lý">Tâm lý</option>
-                <option value="khác">Khác</option>
+                @foreach ($ListTheLoai as $theloai )
+                <option value="{{$theloai->TheLoai}}">{{$theloai->TheLoai}}</option>
+                @endforeach
             </select>
 
             <p class="error">
@@ -59,7 +61,7 @@
 
         <div class="form-group">
             <label for="DonGia">Đơn giá</label>
-            <input type="number" name="DonGia" class="form-control" id="DonGia" value="{{$quanlysach->DonGia}}">
+            <input type="number" name="DonGia" class="form-control" id="DonGia" value="{{number_format($quanlysach->DonGia,0,"",".");}}">
             <p class="error"@error('DonGia')
             {{$message}}
             @enderror></p>

@@ -1,6 +1,9 @@
 @extends('frontend.layout.admin')
 
 @section('content')
+<div class="tab-pane fade show active" id="quanlysach" role="tabpanel"
+aria-labelledby="v-pills-home-tab">
+
 <div>
     <div >
         <h1 class="text-center">Danh sách sản phẩm</h1>
@@ -27,7 +30,7 @@
                     <td scope="row">{{$Sach->TenSach}}</td>
                     <td scope="row">{{$Sach->TacGia}}</td>
                     <td scope="row">{{$Sach->TheLoai}}</td>
-                    <td scope="row">{{$Sach->DonGia}}</td>
+                    <td scope="row">{{number_format($Sach->DonGia,0,"",".");}}</td>
                     <td>
                         <a href="{{url('quanlysach/'.$Sach->STT)}}"><i class="far fa-eye"></i></a>
                         <a href="{{url('quanlysach/'.$Sach->STT.'/edit')}}"><i class="fas fa-pencil-alt"></i></a>
@@ -47,6 +50,6 @@
         {{$ListSach->links("pagination::bootstrap-4")}}
 </div>
 
-
+</div>
 
 @endsection

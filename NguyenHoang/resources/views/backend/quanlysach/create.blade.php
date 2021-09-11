@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <h1 class="text-center">Thêm mới sản phẩm</h1>
         <form action="{{ url('quanlysach') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -49,10 +50,12 @@
             <div class="form-group">
                 <label for="TheLoai">Thể loại:</label>
                 <select name="TheLoai" id="TheLoai" class="form-control">
-                    <option value=""></option>
-                    <option value="Văn học">Văn học</option>
-                    <option value="Tâm lý">Tâm lý</option>
-                    <option value="Khác">Khác</option>
+                    <option value="">Lựa chọn thể loại</option>
+                    @foreach ($ListTheLoai as $theloai )
+                    <option value="{{$theloai->TheLoai}}">{{$theloai->TheLoai}}</option>
+                    @endforeach
+
+
                 </select>
 
                 <p class="error">

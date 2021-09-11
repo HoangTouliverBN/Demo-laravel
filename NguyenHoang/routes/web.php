@@ -34,9 +34,6 @@ Route::post('/home/search',[WebController::class, 'Search']);
 Route::get('/home/search/{search}',[WebController::class, 'ValueSearch']);
 
 
-// order
-Route::post('home/order',[OrderController::class,'Order']);
-
 
 
 // login-register
@@ -54,20 +51,10 @@ Route::get('/logout', [AuthenticateController::class, 'logout']);
 
 
 
-//admin
-Route::middleware(['auth','phanquyen'])->group(function () {
-    Route::get('quanlysach', [SachController::class, 'index']);
-Route::resource('quanlysach', SachController::class);
-});
-Route::middleware(['auth', 'master'])->group(function () {
-    Route::get('register-admin', [AuthenticateController::class, 'ShowRegisterAdmin']);
-    Route::post('register-admin', [AuthenticateController::class, 'RegisterAdmin']);
-});
-
-
-Route::get('/preview', function ($id) {
-    
-});
+Route::middleware(['auth'])->group(function () {
+    Route::get('user-information',[UserInformationController::class,'UserInformartion']);
+Route::get('update-information',[UserInformationController::class,'ShowFormInformation']);
+Route::post('update-information',[UserInformationController::class,'UpdateInformation']);
 
 Route::get('/send', function () {
 
@@ -75,7 +62,16 @@ Route::get('/send', function () {
 });
 
 
+// order
+Route::post('home/order',[OrderController::class,'Order']);
+
+// Change Password
+Route::get('changePassword',[AuthenticateController::class,'ShowChangePassword']);
+Route::post('changePassword',[AuthenticateController::class,'ChangePassword']);
+
+
+
+
+});
+
 // user_information
-Route::get('user-information',[UserInformationController::class,'UserInformartion']);
-Route::get('update-information',[UserInformationController::class,'ShowFormInformation']);
-Route::post('update-information',[UserInformationController::class,'UpdateInformation']);

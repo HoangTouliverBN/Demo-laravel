@@ -16,7 +16,7 @@
                 <a href="{{url('home/detail/'.$SachVanHoc->STT)}}"><img src="{{Storage::disk('AnhSach')->url($SachVanHoc->AnhSP)}}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                     <h5 class="card-title">{{$SachVanHoc->TenSach}}</h5>
-                    <p class="card-text"><span>{{$SachVanHoc->DonGia}}</span> VNĐ</p>
+                    <p class="card-text"><span>{{number_format($SachVanHoc->DonGia,0,"",".");}}</span> VNĐ</p>
 
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <a href="{{url('home/detail/'.$SachTamLy->STT)}}"><img src="{{Storage::disk('AnhSach')->url($SachTamLy->AnhSP)}}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                     <h5 class="card-title">{{$SachTamLy->TenSach}}</h5>
-                    <p class="card-text"><span>{{$SachTamLy->DonGia}}</span> VNĐ</p>
+                    <p class="card-text"><span>{{number_format($SachTamLy->DonGia,0,"",".");}}</span> VNĐ</p>
 
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 <a href="{{url('home/detail/'.$SachKhac->STT)}}}}"><img src="{{Storage::disk('AnhSach')->url($SachKhac->AnhSP)}}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                     <h5 class="card-title">{{$SachKhac->TenSach}}</h5>
-                    <p class="card-text"><span>{{$SachKhac->DonGia}}</span> VNĐ</p>
+                    <p class="card-text"><span>{{number_format($SachTamLy->DonGia,0,"",".");}}</span> VNĐ</p>
 
                 </div>
             </div>

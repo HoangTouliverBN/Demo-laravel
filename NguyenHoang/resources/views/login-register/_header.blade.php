@@ -1,6 +1,6 @@
 <header>
     <div class="row navfirst">
-        <div class="col-md-6 navl">
+        <div class="col-md-6 navl logo-left">
             <h1><a href="{{url('home')}}">NGUYEN HOANG</a></h1>
             <div>
                 <p>Hotline: 1800 1000</p>
