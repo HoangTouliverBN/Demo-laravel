@@ -7,5 +7,7 @@
 
 
         <a class="nav-link"  href="{{ url('quanlytheloai') }}" role="tab">Quản lý thể loại</a>
+
+        <a class="nav-link"  href="{{ url('quanlyorder') }}" role="tab">Quản lý đơn đăng ký mua hàng</a>
     </div>
 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SachController;
 use App\Http\Controllers\TheLoaiSachController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,9 @@ Route::resource('quanlysach', SachController::class);
 
 // quản lý thể loại
 Route::resource('quanlytheloai', TheLoaiSachController::class);
+
+// quản ly đơn đăng ký
+Route::resource('quanlyorder', OrderController::class);
 
 });
 Route::middleware(['auth', 'master'])->group(function () {

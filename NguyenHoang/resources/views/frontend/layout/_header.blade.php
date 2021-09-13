@@ -28,7 +28,7 @@
 
                             @if (Auth::user()->id_phanquyen==2||Auth::user()->id_phanquyen==3)
                             <a class="dropdown-item DI" href="{{url('quanlysach')}}">Quản lý</a>
-                            <a class="dropdown-item DI" href="">Đơn đăng ký</a>
+
                             @endif
                             @if (Auth::user()->id_phanquyen==3)
                             <a class="dropdown-item DI" href="{{url('register-admin')}}">Thêm tài khoản admin</a>
