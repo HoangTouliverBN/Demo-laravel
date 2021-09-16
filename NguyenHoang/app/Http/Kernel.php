@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\check_infor;
 use App\Http\Middleware\CheckLogin;
 use App\Http\Middleware\KhongPhaiAdmin;
 use App\Http\Middleware\KhongPhaiMaster;
@@ -69,5 +70,6 @@ class Kernel extends HttpKernel
         'phanquyen'=> KhongPhaiAdmin::class,
         'master' =>KhongPhaiMaster::class,
         'checklogin'=>CheckLogin::class,
+        'check_infor'=>check_infor::class,
     ];
 }

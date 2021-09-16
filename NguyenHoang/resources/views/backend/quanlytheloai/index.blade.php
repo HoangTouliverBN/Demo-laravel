@@ -17,8 +17,6 @@ aria-labelledby="v-pills-home-tab">
                 <th scope="col">STT</th>
 
                 <th scope="col">Thể loại</th>
-
-                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>

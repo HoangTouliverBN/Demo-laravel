@@ -19,16 +19,14 @@ aria-labelledby="v-pills-home-tab">
 
                 <th scope="col">Tình trạng</th>
 
-
-                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($quanlyorder as $order)
+            @foreach ($orders as $order)
                 <tr>
                     <td scope="row">{{$order->name}}</td>
-                    <td scope="row">{{$order->name}}</td>
-                    <td scope="row">{{$order->name}}</td>
+                    <td scope="row">{{$order->email}}</td>
+                    <td scope="row">{{$order->phone_number}}</td>
                     <td>
                         <a href="{{url('quanlyorder/'.$order->id)}}"><i class="far fa-eye"></i></a>
                         <a href="{{url('quanlyorder/'.$order->id.'/edit')}}"><i class="fas fa-pencil-alt"></i></a>

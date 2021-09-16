@@ -63,7 +63,10 @@ Route::get('/send', function () {
 
 
 // order
+Route::middleware(['auth', 'check_infor'])->group(function () {
 Route::post('home/order',[OrderController::class,'Order']);
+    
+});
 
 // Change Password
 Route::get('changePassword',[AuthenticateController::class,'ShowChangePassword']);

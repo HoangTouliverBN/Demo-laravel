@@ -31,11 +31,13 @@ class OrderController extends Controller
         $user_id = $quanlyorder->id; 
 
 
-        $email = Order::join('users','id','=','user_id')->get(['id','email']);
+        $orders = Order::join('users','users.id','=','order.user_id')
+        ->join('user_information','user_information.user_id','=','users.id')
+        ->get(['email','order.name','user_information.phone_number']);
 
 
         $quanlyorder = Order::paginate(10);
-        return view('backend.quanlyorder.index',compact('quanlyorder','user'));
+        return view('backend.quanlyorder.index',compact('quanlyorder','orders'));
     }
 
 

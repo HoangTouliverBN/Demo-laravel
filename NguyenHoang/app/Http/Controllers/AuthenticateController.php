@@ -86,7 +86,7 @@ class AuthenticateController extends Controller
         return view('login-register.changePassword');
     }
 
-    public function ChangePassword(User $user,Request $request)
+    public function ChangePassword(Request $request)
     {
 
         $request->validate([
@@ -96,12 +96,12 @@ class AuthenticateController extends Controller
         ]);
 
         $newPassword = $request->input('Password');
-        // $user_id = Auth::user()->id;
-        // $password = Hash::make($newPassword);
-        // $user->find($user_id);
-        // $user->update([
-        //     'password'=>$password
-        // ]);
+    
+        $password = $newPassword;
+        $user = User::find(Auth::user()->id);
+        $user->update([
+            'password'=>$password
+        ]);
 
         return $user;
         
