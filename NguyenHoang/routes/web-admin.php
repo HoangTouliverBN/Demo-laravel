@@ -30,7 +30,13 @@ Route::resource('quanlysach', SachController::class);
 Route::resource('quanlytheloai', TheLoaiSachController::class);
 
 // quản ly đơn đăng ký
+Route::post('quanlyorder/state/{id}',[OrderController::class,'updateState']);
+
 Route::resource('quanlyorder', OrderController::class);
+
+
+
+// Route::resource('quanlyuser', UserController::class);
 
 });
 Route::middleware(['auth', 'master'])->group(function () {

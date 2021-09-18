@@ -33,12 +33,24 @@ class OrderController extends Controller
 
         $orders = Order::join('users','users.id','=','order.user_id')
         ->join('user_information','user_information.user_id','=','users.id')
-        ->get(['email','order.name','user_information.phone_number']);
+        ->get(['email','order.name','user_information.phone_number','order.state','order.id']);
 
 
         $quanlyorder = Order::paginate(10);
         return view('backend.quanlyorder.index',compact('quanlyorder','orders'));
     }
+    
+    public function updateState(Request $request,$id)
+    {
+        $quanlyorder = Order::find($id);
+        $newState = $request->input('state');
+        // dd($quanlyorder);
 
+        $check = $quanlyorder->update([
+            'state'=>$newState
+        ]);
+            // dd($check);
 
+        return redirect('quanlyorder');
+    }
 }

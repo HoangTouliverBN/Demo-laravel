@@ -12,7 +12,7 @@ class Order extends Model
 
     protected $table = "order";
 
-    protected $fillable = ['name','user_id'];
+    protected $fillable = ['name','user_id','state'];
 
 
     public function user()
