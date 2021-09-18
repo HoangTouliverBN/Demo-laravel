@@ -14,8 +14,6 @@ aria-labelledby="v-pills-home-tab">
     <table class="table table-bordered ">
         <thead>
             <tr>
-                <th scope="col">STT</th>
-
                 <th scope="col">Thể loại</th>
             </tr>
         </thead>
