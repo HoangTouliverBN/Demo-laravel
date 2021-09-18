@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SachController;
 use App\Http\Controllers\TheLoaiSachController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,12 +32,10 @@ Route::resource('quanlytheloai', TheLoaiSachController::class);
 
 // quản ly đơn đăng ký
 Route::post('quanlyorder/state/{id}',[OrderController::class,'updateState']);
-
 Route::resource('quanlyorder', OrderController::class);
 
-
-
-// Route::resource('quanlyuser', UserController::class);
+// quản lý người dùng
+Route::resource('quanlyuser', UserController::class);
 
 });
 Route::middleware(['auth', 'master'])->group(function () {

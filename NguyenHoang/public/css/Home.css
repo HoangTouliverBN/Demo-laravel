@@ -28,6 +28,7 @@ a:hover {
     color: #ffc000;
     display: flex;
     padding-left: 100px;
+    position: revert;
 }
 
 .navl p {
@@ -344,4 +345,14 @@ input {
 }
 .menu-custom{
     margin-top: 80px;
+}
+.avatar{
+    max-width: 180px;
+    margin-top: 25px;
+}
+.toast-customed{
+    margin-left: 70px;
+}
+.bell-customed{
+    font-size: 20px;
 }

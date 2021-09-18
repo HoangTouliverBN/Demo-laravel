@@ -5,4 +5,7 @@ $(function() {
     });
 
     $(".phanquyen").hide()
+
+    
+
 })

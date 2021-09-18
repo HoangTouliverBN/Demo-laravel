@@ -9,5 +9,11 @@
         <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlytheloai') }}" role="tab">Quản lý thể loại</a>
 
         <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlyorder') }}" role="tab">Quản lý đơn đăng ký mua hàng</a>
+
+        <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlyuser') }}" role="tab">Quản lý người dùng</a>
+
+        <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlyshoppingcart') }}" role="tab">Quản lý giỏ hàng</a>
+
+        {{-- <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlydoanhthu') }}" role="tab">Quản lý giỏ hàng</a> --}}
     </div>
 </div>

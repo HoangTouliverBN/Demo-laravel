@@ -6,7 +6,7 @@
         <div class="row no-gutters">
             <div class="col-md-4 text-right">
                 @if (!empty($value->avatar))
-                <img src="{{ Storage::disk('Avatar')->url($value->avatar) }}" alt="">
+                <img class="avatar" src="{{ Storage::disk('Avatar')->url($value->avatar) }}" alt="">
                     
                 @else
                 <img class="w-50" src="{{asset('assets/images/avatar.png')}}" alt="">

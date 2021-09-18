@@ -18,6 +18,7 @@ class CreateOrderTable extends Migration
             $table->string('name');
             $table->bigInteger('user_id')->unsigned();
             $table->integer('state')->nullable();
+            $table->string('description')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
 

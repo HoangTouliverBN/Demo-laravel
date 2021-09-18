@@ -21,8 +21,7 @@ class OrderController extends Controller
         $order = Order::create(array_merge($request->input(),[
             'user_id' => $user_id,
         ]));
-        $value = 'Đăng ký thành công';
-        return redirect('home')->with('value');
+        return redirect('/')->with('message','Đăng ký thành công');
 
     }
 
@@ -36,8 +35,7 @@ class OrderController extends Controller
         ->get(['email','order.name','user_information.phone_number','order.state','order.id']);
 
 
-        $quanlyorder = Order::paginate(10);
-        return view('backend.quanlyorder.index',compact('quanlyorder','orders'));
+        return view('backend.quanlyorder.index',compact('orders'));
     }
     
     public function updateState(Request $request,$id)
@@ -51,6 +49,38 @@ class OrderController extends Controller
         ]);
             // dd($check);
 
+        return redirect('quanlyorder');
+    }
+
+    public function show(Order $quanlyorder){
+
+        
+        $quanlyorder = Order::join('users','users.id','=','order.user_id')
+        ->join('user_information','user_information.user_id','=','users.id')
+        ->first(['email','order.name','user_information.phone_number','order.state','order.id','user_information.address','order.description','user_information.first_name','user_information.last_name']);
+        // dd($quanlyorder);
+        return view('backend.quanlyorder.show', compact('quanlyorder'));
+    }
+
+    public function edit(Order $quanlyorder)
+    {
+        return view('backend.quanlyorder.edit', compact('quanlyorder'));
+    }
+
+    public function update(Order $quanlyorder, Request $request)
+    {
+        $request->validate([
+            'name'=>'required',
+        ]);
+
+        $quanlyorder->update($request->input());
+
+        return redirect('quanlyorder');
+    }
+
+    public function destroy(Order $quanlyorder)
+    {
+        $quanlyorder->delete();
         return redirect('quanlyorder');
     }
 }
