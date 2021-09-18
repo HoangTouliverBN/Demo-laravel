@@ -23,7 +23,7 @@ class check_infor
         $user_infor = user_information::where('user_id',$user_id)->first();
 
         if($user_infor == null){
-            return redirect('/user-information');
+            return redirect('/user-information')->with('message','Cần cập nhập thông tin tài khoản trước khi đăng ký mua hàng');
         }
 
         return $next($request);

@@ -103,7 +103,7 @@ class AuthenticateController extends Controller
             'password'=>$password
         ]);
 
-        return $user;
+        return redirect('home')->with('message','Đổi mật khẩu thành công');
         
 
     }

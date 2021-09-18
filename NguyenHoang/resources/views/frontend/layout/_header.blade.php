@@ -1,20 +1,4 @@
-@if (\Session::has('message'))
-    <div class="position-fixed">
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
-            <div class="toast-header">
-                <span class="bell-customed"><i class="far fa-bell"></i></span>
-                <strong class="mr-auto">Thông báo</strong>
-                <small class="text-muted toast-customed">hiện tại</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                {{ \Session::get('message') }}
-            </div>
-        </div>
-    </div>
-@endif
+
 <header>
     <div class="row navfirst">
 

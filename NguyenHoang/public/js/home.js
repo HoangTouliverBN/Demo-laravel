@@ -6,6 +6,4 @@ $(function() {
 
     $(".phanquyen").hide()
 
-    
-
 })

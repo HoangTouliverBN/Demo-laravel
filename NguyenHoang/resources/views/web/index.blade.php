@@ -13,6 +13,23 @@
     <link rel="stylesheet" href="{{asset('css/login-register.css')}}">
 </head>
 <body>
+    @if (\Session::has('message'))
+    <div class="position-fixed">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
+            <div class="toast-header">
+                <span class="bell-customed"><i class="far fa-bell"></i></span>
+                <strong class="mr-auto">Thông báo</strong>
+                <small class="text-muted toast-customed">hiện tại</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                {{ \Session::get('message') }}
+            </div>
+        </div>
+    </div>
+@endif
     {{-- header --}}
     @include('web._header')
     {{-- section--}}
@@ -20,9 +37,22 @@
     {{-- footer --}}
     @include('web._footer')
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+    </script>
     <script src="{{asset('js/home.js')}}"></script>
+    @if (\Session::has('message'))
+    {<script>
+            $(document).ready(function(){
+    $('.toast').toast('show');
+  });
+    </script>}
+@endif
 </body>
 </html>

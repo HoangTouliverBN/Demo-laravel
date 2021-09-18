@@ -16,6 +16,23 @@
 </head>
 
 <body>
+    @if (\Session::has('message'))
+        <div class="position-fixed">
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+                <div class="toast-header">
+                    <span class="bell-customed"><i class="far fa-bell"></i></span>
+                    <strong class="mr-auto">Thông báo</strong>
+                    <small class="text-muted toast-customed">hiện tại</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    {{ \Session::get('message') }}
+                </div>
+            </div>
+        </div>
+    @endif
     {{-- header --}}
     @include('frontend.layout._header')
     {{-- section --}}
@@ -32,12 +49,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
         integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
     </script>
+    <script src="{{asset('vendors/jquery/jquery-3.6.0.min.js')}}"></script>
     <script src="{{ asset('js/home.js') }}"></script>
     @if (\Session::has('message'))
-        {<script>
-                $(document).ready(function(){
-        $('.toast').toast('show');
-      });
+        <script>
+            $(document).ready(function() {
+                $('.toast').toast('show');
+            });
         </script>}
     @endif
 
