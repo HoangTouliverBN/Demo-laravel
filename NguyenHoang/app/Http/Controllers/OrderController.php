@@ -49,7 +49,7 @@ class OrderController extends Controller
         ]);
             // dd($check);
 
-        return redirect('quanlyorder');
+        return redirect('quanlyorder')->with('message','Cập nhật trạng thái đơn hàng thành công');
     }
 
     public function show(Order $quanlyorder){
@@ -75,12 +75,12 @@ class OrderController extends Controller
 
         $quanlyorder->update($request->input());
 
-        return redirect('quanlyorder');
+        return redirect('quanlyorder')->with('message','Cập nhật đơn hàng thành công');
     }
 
     public function destroy(Order $quanlyorder)
     {
         $quanlyorder->delete();
-        return redirect('quanlyorder');
+        return redirect('quanlyorder')->with('message','Xóa đơn hàng thành công');
     }
 }

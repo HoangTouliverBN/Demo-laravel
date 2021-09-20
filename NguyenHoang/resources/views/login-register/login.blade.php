@@ -6,7 +6,7 @@
     <form action="{{url('login')}}" class="login-form container" method="POST">
         @csrf
             <div class="form-group">
-                <label for="email">Tài khoản:</label>
+                <label for="email">Email:</label>
                 <input type="text" id="email" name="email" class="form-control">
             </div>
 
@@ -28,7 +28,11 @@
             <div class="text-center ">
                 <button type="submit" class="btn-submit btn btn-primary">Đăng nhập</button>
             </div>
-    <a href="{{url('register')}}">Bạn chưa có tài khoản?</a>       
+    <div class="d-flex justify-content-between">
+        <p><a href="{{url('register')}}">Bạn chưa có tài khoản?</a>
+            </p>
+            <p><a href="{{url('password/forget')}}">Quên mật khẩu?</a></p>
+    </div>
     </form>
 </div>
 @endsection

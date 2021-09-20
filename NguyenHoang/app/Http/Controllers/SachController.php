@@ -68,7 +68,7 @@ class SachController extends Controller
             $file->storeAS('',$fileName,'AnhSach');
         }
 
-        return redirect('quanlysach');
+        return redirect('quanlysach')->with('message','Thêm mới sản phẩm thành công');
     }
 
     public function show(Sach $quanlysach)
@@ -128,13 +128,13 @@ class SachController extends Controller
         if($check && $fileCheck){
             $file->storeAS('',$fileName,'AnhSach');
         }
-        return redirect(url('quanlysach'));
+        return redirect(url('quanlysach'))->with('message','Cập nhật sản phẩm thành công');
     }
 
     public function destroy(Sach $quanlysach)
     {
         $quanlysach->delete();
-        return redirect(url('quanlysach'));
+        return redirect(url('quanlysach'))->with('message','Xóa sản phẩm thành công');
         
     }
 }

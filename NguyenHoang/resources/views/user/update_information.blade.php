@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <h1 class="text-center">Cập nhật thông tin cá nhân</h1>
         <form action="update-information" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -34,16 +35,7 @@
 
             <div class="form-group">
                 <label for="inputGroupFile01">Ảnh đại diện</label>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01" name="avatar">
-                        <label class="custom-file-label" for="inputGroupFile01">Chọn ảnh đại diện</label>
-                    </div>
-                </div>
+                <input type="file" name="avatar" class="form-control">
             </div>
 
             <button class="btn btn-primary" type="submit">Cập nhật thông tin</button>

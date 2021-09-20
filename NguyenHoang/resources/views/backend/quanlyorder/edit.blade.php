@@ -21,7 +21,7 @@
             </div>
 
             </div>
-            <button type="submit" name="submit" class="btn btn-primary">Thêm mới</button>
+            <button type="submit" name="submit" class="btn btn-primary">Cập nhật</button>
             <a href="{{url('quanlyorder')}}" class="btn btn-primary">Quay lại</a>
         </form>
 

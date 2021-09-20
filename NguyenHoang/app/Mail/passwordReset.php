@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class EmailSent extends Mailable
+class passwordReset extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +16,10 @@ class EmailSent extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($token,$email)
     {
-        //
+        $this->token = $token;
+        $this->email = $email;
     }
 
     /**
@@ -29,7 +30,8 @@ class EmailSent extends Mailable
     public function build()
     {
         return $this->view('mail.index',[
-            '' => 'Nguyễn Hoàng',
+            'token' => $this->token,
+            'email' => $this->email,
         ]);
     }
 }

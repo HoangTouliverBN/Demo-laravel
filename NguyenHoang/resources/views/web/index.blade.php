@@ -48,11 +48,11 @@
     </script>
     <script src="{{asset('js/home.js')}}"></script>
     @if (\Session::has('message'))
-    {<script>
+    <script>
             $(document).ready(function(){
     $('.toast').toast('show');
   });
-    </script>}
+    </script>
 @endif
 </body>
 </html>

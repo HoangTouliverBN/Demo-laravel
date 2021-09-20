@@ -27,7 +27,7 @@ class TheLoaiSachController extends Controller
 
         $check = TheLoaiSach::create($request->input());
         
-        return redirect('quanlytheloai');
+        return redirect('quanlytheloai')->with('message','Thêm mới thể loại thành công');
     }
 
     public function edit(TheLoaiSach $quanlytheloai)
@@ -41,7 +41,7 @@ class TheLoaiSachController extends Controller
         ]);
 
         $check = $quanlytheloai->update($request->input());
-        return redirect('quanlytheloai');
+        return redirect('quanlytheloai')->with('message','Cập nhật thể loại thành công');
     }
 
     public function show(TheLoaiSach $quanlytheloai)
@@ -56,7 +56,7 @@ class TheLoaiSachController extends Controller
     public function destroy(TheLoaiSach $quanlytheloai)
     {
         $quanlytheloai->delete();
-        return redirect(url('quanlytheloai'));
+        return redirect(url('quanlytheloai'))->with('message','Xóa thể loại thành công');
         
     }
 }

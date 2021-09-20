@@ -7,7 +7,7 @@
     <form action="{{url('register-admin')}}" class="login-form container" method="POST">
         @csrf
             <div class="form-group">
-                <label for="email">Tài khoản:</label>
+                <label for="email">Email:</label>
                 <input type="text" id="email" name="email" class="form-control">
             </div>
 

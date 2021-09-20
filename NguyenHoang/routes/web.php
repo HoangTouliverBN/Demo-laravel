@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\resetPasswordController;
 use App\Http\Controllers\SachController;
 use App\Http\Controllers\UserInformationController;
 use App\Http\Controllers\WebController;
@@ -33,6 +34,12 @@ Route::get('home/{theloai}',[WebController::class,'ShowAll']);
 Route::post('/home/search',[WebController::class, 'Search']);
 Route::get('/home/search/{search}',[WebController::class, 'ValueSearch']);
 
+// reset password
+Route::get('password/forget',[resetPasswordController::class,'ShowEmailRequest']);
+Route::post('password/forget',[resetPasswordController::class,'emailRequest']);
+Route::get('password/reset/{token}',[resetPasswordController::class,'showResetPassword']);
+
+
 
 
 
@@ -56,10 +63,10 @@ Route::middleware(['auth'])->group(function () {
 Route::get('update-information',[UserInformationController::class,'ShowFormInformation']);
 Route::post('update-information',[UserInformationController::class,'UpdateInformation']);
 
-Route::get('/send', function () {
+// Route::get('/send', function () {
 
-    Mail::to('cuhoang2000bn@gmail.com')->send(new EmailSent());
-});
+//     Mail::to('cuhoang2000bn@gmail.com')->send(new EmailSent());
+// });
 
 
 // order

@@ -19,4 +19,10 @@ class UserController extends Controller
         ->first(['users.email','user_information.last_name','user_information.first_name','user_information.birthday','user_information.phone_number','user_information.address']);
         return view('backend.quanlyuser.show', compact('quanlyuser'));
     }
+
+    public function destroy(User $quanlyuser)
+    {
+        $quanlyuser->delete();
+        return redirect('quanlyuser')->with('message','Xóa người dùng thành công');
+    }
 }

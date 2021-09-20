@@ -29,7 +29,7 @@ class AuthenticateController extends Controller
             'id_phanquyen' => 1,
         ]));
 
-        return redirect('login');
+        return redirect('login')->with('message','Đăng ký thành công, đăng nhập lại bằng tài khoản vừa đăng ký');
     }
 
     // Login
@@ -107,4 +107,8 @@ class AuthenticateController extends Controller
         
 
     }
+
+
+
+    
 }
