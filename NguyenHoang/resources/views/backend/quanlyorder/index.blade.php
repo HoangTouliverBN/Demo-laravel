@@ -31,26 +31,27 @@
                             <td scope="row">{{ $order->phone_number }}</td>
                             <td scope="row">{{ $order->state == null ? 'Chưa hoàn thành' : 'Đã hoàn thành' }}</td>
                             <td>
-                                <form action="{{ url('quanlyorder/state/' . $order->id) }}" method="POST" class="d-inline">
+                                <form action="{{ url('quanlyorder/state/' . $order->id) }}" method="POST"
+                                    class="d-inline">
                                     @csrf
                                     {{-- @method('PUT') --}}
-                                    <input type="text" value='{{ $order->state == null ? $order->id : null }}' name="state"  class="d-none">
+                                    <input type="text" value='{{ $order->state == null ? $order->id : null }}'
+                                        name="state" class="d-none">
                                     <button type="submit" style="border: none;
-                                background-color: WHITE; color:#007bff;">{!! $order->state == null ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}</button>
+                                        background-color: WHITE; color:#007bff;">{!! $order->state == null ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' !!}</button>
                                 </form>
 
-                                
+
                                 <a href="{{ url('quanlyorder/' . $order->id) }}"><i class="far fa-eye"></i></a>
-                                <a href="{{ url('quanlyorder/' . $order->id . '/edit') }}"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="{{ url('quanlyorder/' . $order->id) }}"
-                                    onclick="return confirm('Bạn có chắc chắn muốn xóa dữ liệu này?')"></a>
+                                <a href="{{ url('quanlyorder/' . $order->id . '/edit') }}"><i
+                                        class="fas fa-pencil-alt"></i></a>
                                 <form action="{{ url('quanlyorder/' . $order->id) }}" class="d-inline" method="POST"
-                                    onsubmit="return 'Bạn có chắc chắn xóa'">
+                                    onsubmit="return confirm('Bạn có chắc chắn xóa')">
                                     @csrf
                                     @method('DELETE')
 
                                     <button type="submit" style="border: none;
-                            background-color: WHITE; color:#007bff;"><i class="fas fa-trash"></i></a></button>
+                                    background-color: WHITE; color:#007bff;"><i class="fas fa-trash"></i></a></button>
                                 </form>
                             </td>
                         </tr>

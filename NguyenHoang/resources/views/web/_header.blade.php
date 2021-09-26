@@ -17,7 +17,7 @@
                     </li>
                 </form>
                 <li>
-                    <a href="#"><i class="fas fa-shopping-cart"></i>Giỏ hàng</a>
+                    <a href="{{url('/shoppingCart')}}"><i class="fas fa-shopping-cart"></i>Giỏ hàng</a>
                 </li>
                 <li>
 

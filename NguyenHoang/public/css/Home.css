@@ -356,3 +356,22 @@ input {
 .bell-customed{
     font-size: 20px;
 }
+.detail-product{
+    max-width: 300px;
+}
+.table-img{
+    max-width: 100px;
+}
+.table-td-img{
+    margin-left: 15px;
+}
+.shopping-cart-text{
+    vertical-align: middle !important;
+    text-align: center;
+}
+#btn-delete{
+    cursor: pointer;
+}
+.input-number{
+    background-color: rgb(216, 208, 208);
+}

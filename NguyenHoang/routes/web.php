@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\resetPasswordController;
 use App\Http\Controllers\SachController;
+use App\Http\Controllers\shoppingCartController;
 use App\Http\Controllers\UserInformationController;
 use App\Http\Controllers\WebController;
 use App\Mail\EmailSent;
@@ -63,11 +64,11 @@ Route::middleware(['auth'])->group(function () {
 Route::get('update-information',[UserInformationController::class,'ShowFormInformation']);
 Route::post('update-information',[UserInformationController::class,'UpdateInformation']);
 
-// Route::get('/send', function () {
-
-//     Mail::to('cuhoang2000bn@gmail.com')->send(new EmailSent());
-// });
-
+// shopping cart
+Route::get('/shoppingCart',[shoppingCartController::class,'index']);
+Route::get('/addIntoShoppingCart/{sach_id}',[shoppingCartController::class,'addProduct']);
+Route::get('shoppingCart/delete/{id}',[shoppingCartController::class,'destroy']);;
+Route::post('shoppingCart/pay',[shoppingCartController::class,'pay']);
 
 // order
 Route::middleware(['auth', 'check_infor'])->group(function () {

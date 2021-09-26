@@ -6,4 +6,8 @@ $(function() {
 
     $(".phanquyen").hide()
 
+    $('div#btn-delete').click(function(){
+        console.log('123');
+        $('form#form-delete').submit();
+    })    
 })

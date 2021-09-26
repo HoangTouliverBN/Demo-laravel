@@ -31,13 +31,13 @@
                                 @if ($user->id_phanquyen != 3)
                                     <a href="{{ url('quanlyuser/' . $user->id) }}"
                                         onclick="return confirm('Bạn có chắc chắn muốn xóa dữ liệu này?')"></a>
-                                    <form action="{{ url('quanlyuser/' . $user->id) }}" class="d-inline" method="POST"
-                                        onsubmit="return 'Bạn có chắc chắn xóa'">
+                                    <form action="{{ url('quanlyuser/' . $user->id) }}" class="d-inline"
+                                        method="POST" onsubmit="return confirm('Bạn có chắc chắn xóa')">
                                         @csrf
                                         @method('DELETE')
 
                                         <button type="submit" style="border: none;
-                          background-color: WHITE; color:#007bff;"><i class="fas fa-trash"></i></a></button>
+                              background-color: WHITE; color:#007bff;"><i class="fas fa-trash"></i></a></button>
                                     </form>
                                 @endif
                             </td>
