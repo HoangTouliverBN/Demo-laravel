@@ -12,8 +12,8 @@
 
         <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlyuser') }}" role="tab">Quản lý người dùng</a>
 
-        <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlyshoppingcart') }}" role="tab">Quản lý giỏ hàng</a>
+        <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('shoppingCart') }}" role="tab">Quản lý giỏ hàng</a>
 
-        {{-- <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlydoanhthu') }}" role="tab">Quản lý giỏ hàng</a> --}}
+        <a class=" nav-link border border-primary menu-custom-children"  href="{{ url('quanlydoanhthu') }}" role="tab">Quản lý doanh thu</a>
     </div>
 </div>

@@ -11,20 +11,24 @@ class WebController extends Controller
 {
     public function all()
     {
-        $VanHoc = Sach::where('Id_TheLoai','1')->paginate(3);
-        $TamLy = Sach::where('Id_TheLoai','2')->paginate(3);
-        $Khac = Sach::where('Id_TheLoai','3')->paginate(3);
-        return view('web.section',compact('VanHoc','TamLy','Khac'));
+
+        $VanHoc = Sach::where('Id_TheLoai', '1')
+            ->orderBy('STT', 'DESC')->paginate(3);
+        $TamLy = Sach::where('Id_TheLoai', '2')
+            ->orderBy('STT', 'DESC')->paginate(3);
+        $Khac = Sach::where('Id_TheLoai', '3')
+            ->orderBy('STT', 'DESC')->paginate(3);
+        return view('web.section', compact('VanHoc', 'TamLy', 'Khac'));
     }
 
     public function showDetail(Sach $detail)
     {
-        if($detail->SoLuong > 0){
+        if ($detail->SoLuong > 0) {
             $TinhTrang = "Còn hàng";
         } else {
             $TinhTrang = "Hết hàng";
         }
-        return view('web.ShowDetail',compact('detail','TinhTrang'));
+        return view('web.ShowDetail', compact('detail', 'TinhTrang'));
     }
 
     public function ShowAll($theloai)
@@ -32,18 +36,21 @@ class WebController extends Controller
         switch ($theloai) {
             case 'vanhoc':
                 $TheLoai = 'SÁCH VĂN HỌC';
-                $Sachs = Sach::where('Id_TheLoai','1')->paginate(9);
-                return view('web.ShowAll',compact('Sachs','TheLoai'));
+                $Sachs = Sach::where('Id_TheLoai', '1')
+                    ->orderBy('STT', 'DESC')->paginate(9);
+                return view('web.ShowAll', compact('Sachs', 'TheLoai'));
 
-                case 'tamly':
-                    $TheLoai = 'SÁCH TÂM LÝ';
-                    $Sachs = Sach::where('Id_TheLoai','2')->paginate(9);
-                    return view('web.ShowAll',compact('Sachs','TheLoai'));
+            case 'tamly':
+                $TheLoai = 'SÁCH TÂM LÝ';
+                $Sachs = Sach::where('Id_TheLoai', '2')
+                    ->orderBy('STT', 'DESC')->paginate(9);
+                return view('web.ShowAll', compact('Sachs', 'TheLoai'));
 
-                    case 'khac':
-                        $TheLoai = 'SÁCH VĂN HỌC';
-                        $Sachs = Sach::where('Id_TheLoai','3')->paginate(9);
-                        return view('web.ShowAll',compact('Sachs','TheLoai'));
+            case 'khac':
+                $TheLoai = 'SÁCH VĂN HỌC';
+                $Sachs = Sach::where('Id_TheLoai', '3')
+                    ->orderBy('STT', 'DESC')->paginate(9);
+                return view('web.ShowAll', compact('Sachs', 'TheLoai'));
         }
     }
 
@@ -53,16 +60,16 @@ class WebController extends Controller
     {
 
         $request->validate([
-            'search'=>'required',
+            'search' => 'required',
         ]);
 
         $search = $request->input('search');
 
-        return redirect('home/search/'.$search);
+        return redirect('home/search/' . $search);
     }
     public function ValueSearch($search)
     {
-        $Sachs = Sach::where('TenSach','like','%'.$search.'%')->paginate(9);
-        return view('web.Search',compact('search','Sachs'));
+        $Sachs = Sach::where('TenSach', 'like', '%' . $search . '%')->paginate(9);
+        return view('web.Search', compact('search', 'Sachs'));
     }
 }

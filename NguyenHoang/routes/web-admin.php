@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\financialController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SachController;
+use App\Http\Controllers\shoppingCartController;
 use App\Http\Controllers\TheLoaiSachController;
 use App\Http\Controllers\UserController;
+use App\Models\financial;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,6 +39,12 @@ Route::resource('quanlyorder', OrderController::class);
 
 // quản lý người dùng
 Route::resource('quanlyuser', UserController::class);
+
+// quản lý doanh thu
+Route::resource('quanlydoanhthu', financialController::class);
+
+// quản lý giỏ hàng
+Route::resource('shoppingCart', shoppingCartController::class);
 
 });
 Route::middleware(['auth', 'master'])->group(function () {

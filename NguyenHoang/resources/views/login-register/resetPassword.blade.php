@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="bg-light text-dark login">
-    <form action="{{url('password/reset')}}" class="login-form container" method="POST">
+    <form action="{{url('password/reset/'.$token)}}" class="login-form container" method="POST">
         @csrf
             <div class="form-group">
                 <label for="password">Mật khẩu mới:</label>

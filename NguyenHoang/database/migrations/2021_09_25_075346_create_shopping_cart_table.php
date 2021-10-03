@@ -19,6 +19,7 @@ class CreateShoppingCartTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->integer('sach_id')->unsigned();
             $table->integer('state')->nullable();
+            $table->integer('so_luong')->nullable();
             $table->timestamps();
 
 

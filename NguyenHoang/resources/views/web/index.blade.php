@@ -70,27 +70,43 @@
                 @foreach ($shoppingCart as $cart)
                     let $thanh_tienss{{ $cart->id }} = 0;
                     let a{{ $cart->id }} = 0
+
                     $('input#input-number-{{ $cart->id }}').change(function() {
                     let $don_gia = $('#don_gia_{{ $cart->id }}').text();
+                
                     let $so_luong = $('input#input-number-{{ $cart->id }}').val();
+                
                     let $thanh_tien{{ $cart->id }} = $don_gia * $('input#input-number-{{ $cart->id }}').val();
+                
                     $('#tong_gia_{{ $cart->id }}').val(formatNumber($thanh_tien{{ $cart->id }}));
-                    if($so_luong == 1){
+                
+                    if($so_luong == 1)
+                    {
                     a{{ $cart->id }} = $thanh_tien{{ $cart->id }}
                     }
+                
                     if($thanh_tien{{ $cart->id }} > $thanh_tienss{{ $cart->id }})
                     {
                     $thanh_tienss{{ $cart->id }} = $thanh_tien{{ $cart->id }};
+                
                     $tong_gia = $tong_gia + a{{ $cart->id }};
+                
                     $('#price').val(formatNumber($tong_gia));
+                
                     }
                 
-                    if($thanh_tien{{ $cart->id }} < $thanh_tienss{{ $cart->id }}) {
-                        $thanh_tienss{{ $cart->id }}=$thanh_tien{{ $cart->id }}; $tong_gia=$tong_gia - a{{ $cart->id }};
-                        $('#price').val(formatNumber($tong_gia)); } }); @endforeach
+                    if($thanh_tien{{ $cart->id }} < $thanh_tienss{{ $cart->id }}) 
+                    {
+                        $thanh_tienss{{ $cart->id }}=$thanh_tien{{ $cart->id }}; 
+                        $tong_gia=$tong_gia - a{{ $cart->id }};
+                        $('#price').val(formatNumber($tong_gia)); 
+                        } 
+                        
+                        }); 
+                        @endforeach
             })
         </script>
     @endisset
-</body>
+</body> 
 
 </html>

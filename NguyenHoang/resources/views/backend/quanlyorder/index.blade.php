@@ -58,7 +58,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{-- {{ $quanlyorder->links('pagination::bootstrap-4') }} --}}
+            {{ $orders->links('pagination::bootstrap-4') }}
         </div>
 
 

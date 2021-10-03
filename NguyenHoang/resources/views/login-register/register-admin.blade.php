@@ -33,9 +33,6 @@
             <p class="text-danger">{{$message}}</p>
             @enderror
 
-            {{-- <div class="d-none">
-                <input type="id_phanquyen" id="id_phanquyen" name="id_phanquyen" class="form-control phanquyen" value="1">
-            </div> --}}
 
             <div class="text-center ">
                 <button type="submit" class="btn-submit btn btn-primary">Đăng ký</button>

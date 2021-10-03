@@ -9,6 +9,7 @@ use App\Models\user_information;
 use App\Rules\CheckPassword;
 use Symfony\Component\Console\Input\Input;
 use App\Http\Controllers\Hash;
+use App\Models\resetPassword;
 
 class AuthenticateController extends Controller
 {
@@ -29,7 +30,7 @@ class AuthenticateController extends Controller
             'id_phanquyen' => 1,
         ]));
 
-        return redirect('login')->with('message','Đăng ký thành công, đăng nhập lại bằng tài khoản vừa đăng ký');
+        return redirect('login')->with('message', 'Đăng ký thành công, đăng nhập lại bằng tài khoản vừa đăng ký');
     }
 
     // Login
@@ -90,25 +91,36 @@ class AuthenticateController extends Controller
     {
 
         $request->validate([
-            'oldPassword' => ['required',new CheckPassword],
+            'oldPassword' => ['required', new CheckPassword],
             'Password' => 'required',
-            'rePassword' => ['required','same:Password'],
+            'rePassword' => ['required', 'same:Password'],
         ]);
 
         $newPassword = $request->input('Password');
-    
+
         $password = $newPassword;
         $user = User::find(Auth::user()->id);
         $user->update([
-            'password'=>$password
+            'password' => $password
         ]);
 
-        return redirect('home')->with('message','Đổi mật khẩu thành công');
-        
-
+        return redirect('home')->with('message', 'Đổi mật khẩu thành công');
     }
 
-
-
-    
+    public function resetPassword(Request $request, $token)
+    {
+        // dd($request->input('password'));
+        $request->validate([
+            'password' => 'required',
+            'confirm-password' => ['required', 'same:password'],
+        ]);
+        $password = resetPassword::where('token', $token)->first();
+        $user = User::where('email', $password->email)->first();
+        $user->update([
+            'password' => $request->input('password'),
+        ]);
+        if ($user) {
+            return redirect('/login')->with('Đặt lại mật khẩu thành công, hãy đăng nhập lại');
+        }
+    }
 }

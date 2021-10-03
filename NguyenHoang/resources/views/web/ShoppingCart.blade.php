@@ -33,30 +33,35 @@
                                 <td class="shopping-cart-text">{{ $cart->TenSach }}</td>
                                 <td class="shopping-cart-text" id="don_gia_{{ $cart->id }}">{{ $cart->DonGia }}</td>
                                 <td class="shopping-cart-text">
+                                    {{-- <button type="button" id="minus{{ $cart->id }}" class="btn btn-danger"><i class="fas fa-minus-square"></i></button> --}}
                                     <input type="number" class="form-controll input-number"
-                                        id="input-number-{{ $cart->id }}" name='so_luong' value="" min="0" max="100">
+                                        id="input-number-{{ $cart->id }}" name='so_luong[]'  value="" min="0"
+                                        max="100">
+                                    {{-- <button type="button" id="plus{{ $cart->id }}" class="btn btn-success"><i class="fas fa-plus-square"></i></button> --}}
                                 </td>
                                 <td class="shopping-cart-text"><input id="tong_gia_{{ $cart->id }}" type="number"
                                         disabled value="" name="tong_gia{{ $cart->id }}">
                                 </td>
                                 <td class="shopping-cart-text">
                                     <a href="{{ url('shoppingCart/delete/' . $cart->id) }}" id="btn-delete" style="border: none;
-                                                        background-color: WHITE; color:#007bff;"><i
-                                            class="fas fa-trash"></i><a>
+                                            background-color: WHITE; color:#007bff;"><i class="fas fa-trash"></i>
+                                        <a>
                                 </td>
-                                <input type="number" class="d-none" disabled value="{{ $cart->id }}"
-                                    name="id{{ $cart->id }}">
+                                <input type="number" class="d-none" readonly value="{{ $cart->id }}"
+                                    name="id[]">
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
                 <div class="text-right">
-                    <p class="d-inline">Tổng tiền đơn hàng: <input type="number" name="money" id='price'></p>
+                    <p class="d-inline">Tổng tiền đơn hàng: <input type="number" name="money" id='price' readonly></p>
                     <button type="submit" class='btn btn-primary'>Thanh toán</button>
                 </div>
             </form>
         @endif
-
+        <p class="error"> @error('so_luong[]')
+                {{ $message }}
+            @enderror</p>
     </div>
 
 @endsection
