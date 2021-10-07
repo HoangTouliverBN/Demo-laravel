@@ -17,11 +17,8 @@
                         <th scope="col">Số lượng</th>
 
                         <th scope="col">Tình trạng</th>
-                        
-                        <th scope="col">Ngày thanh toán</th>
-                        
-                        <th scope="col"></th>
 
+                        <th scope="col">Ngày thanh toán</th>
 
                         {{-- <th scope="col"></th> --}}
 
@@ -31,11 +28,11 @@
                 <tbody>
                     @foreach ($shoppingCart as $cart)
                         <tr>
-                            <td scope="row">{{ $cart->email}}</td>
-                            <td scope="row">{{ $cart->TenSach}}</td>
-                            <td scope="row">{{ $cart->so_luong}}</td>
-                            <td scope="row">{{ $cart->state != null ? 'Đã thanh toán' : 'Chưa thanh toán'}}</td>
-                            <td scope="row">{{ $cart->state != null ? $cart->updated_at : ''}}</td>
+                            <td scope="row">{{ $cart->email }}</td>
+                            <td scope="row">{{ $cart->TenSach }}</td>
+                            <td scope="row">{{ $cart->so_luong }}</td>
+                            <td scope="row">{{ $cart->state != null ? 'Đã thanh toán' : 'Chưa thanh toán' }}</td>
+                            <td scope="row">{{ $cart->state != null ? $cart->updated_at : '' }}</td>
                         </tr>
                     @endforeach
                 </tbody>
