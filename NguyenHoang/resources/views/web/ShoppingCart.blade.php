@@ -35,7 +35,8 @@
                                 <td class="shopping-cart-text">
                                     {{-- <button type="button" id="minus{{ $cart->id }}" class="btn btn-danger"><i class="fas fa-minus-square"></i></button> --}}
                                     <input type="number" class="form-controll input-number"
-                                        id="input-number-{{ $cart->id }}" name='so_luong[]'  value="" min="0"
+                                        id="input-number-{{ $cart->id }}" name='so_luong[]' 
+                                        onkeydown="return false"  value="" min="0"
                                         max="100">
                                     {{-- <button type="button" id="plus{{ $cart->id }}" class="btn btn-success"><i class="fas fa-plus-square"></i></button> --}}
                                 </td>

@@ -68,6 +68,7 @@
                 let $tong_gia = 0;
                 let $tong_soluong = 0;
                 @foreach ($shoppingCart as $cart)
+                
                     let $thanh_tienss{{ $cart->id }} = 0;
                     let a{{ $cart->id }} = 0
                 
