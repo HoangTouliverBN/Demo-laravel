@@ -46,8 +46,8 @@ class TheLoaiSachController extends Controller
 
     public function show(TheLoaiSach $quanlytheloai)
     {
-        $id_theloai = $quanlytheloai->id;
-        $SoLuong = Sach::where('Id_TheLoai',$id_theloai)->get()->count();
+        $id_theloai = $quanlytheloai->TheLoai;
+        $SoLuong = Sach::where('TheLoai',$id_theloai)->get()->count();
 
         return view('backend.quanlytheloai.show',compact('quanlytheloai','SoLuong'));
     }
