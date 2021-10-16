@@ -37,9 +37,6 @@ Route::resource('quanlytheloai', TheLoaiSachController::class);
 Route::post('quanlyorder/state/{id}',[OrderController::class,'updateState']);
 Route::resource('quanlyorder', OrderController::class);
 
-// quản lý người dùng
-Route::resource('quanlyuser', UserController::class);
-
 // quản lý doanh thu
 Route::resource('quanlydoanhthu', financialController::class);
 
@@ -50,4 +47,6 @@ Route::resource('shoppingCart', shoppingCartController::class);
 Route::middleware(['auth', 'master'])->group(function () {
     Route::get('register-admin', [AuthenticateController::class, 'ShowRegisterAdmin']);
     Route::post('register-admin', [AuthenticateController::class, 'RegisterAdmin']);
+    // quản lý người dùng
+Route::resource('quanlyuser', UserController::class);
 });

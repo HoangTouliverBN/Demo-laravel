@@ -19,7 +19,7 @@ class KhongPhaiAdmin
     {
         
         if(Auth::user()->id_phanquyen==1){
-            return redirect('home');
+            return redirect('home')->with('message','Bạn không có quyền truy cập vào chức năng này');
         }
 
         return $next($request);

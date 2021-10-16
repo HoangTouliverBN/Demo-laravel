@@ -22,6 +22,8 @@ a:hover {
     display: flex;
     justify-content: space-between;
     background-color: #002060;
+    width: 100%;
+    margin-left: 0px;
 }
 
 .navl {
@@ -36,7 +38,7 @@ a:hover {
 }
 
 .navl h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
     font-style: italic;
 }
 
@@ -57,7 +59,8 @@ input {
 .search input::placeholder {
     color: black;
     font-size: 18px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
     font-style: italic;
     outline: none;
 }
@@ -67,7 +70,7 @@ input {
     align-items: center;
     list-style: none;
     justify-content: flex-end;
-    margin: 21.440px 50px 0px 0px;
+    margin: 21.44px 50px 0px 0px;
 }
 
 .navr {
@@ -97,7 +100,8 @@ input {
     list-style: none;
     padding: 10px 200px;
     font-size: 30px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
     margin-bottom: 0px;
 }
 
@@ -117,7 +121,7 @@ input {
     border-left: 10px solid #ffc000;
     padding-left: 10px;
     font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Times New Roman", Times, serif;
     font-weight: bolder;
 }
 
@@ -127,14 +131,13 @@ input {
 }
 
 .xemthem {
-    width: 130px;
-    margin-right: 30px;
+    width: 110px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .grid {
-    width: 1350px;
+    width: calc(100% - 120px);
     margin-right: 10px;
     padding-bottom: 7px;
 }
@@ -167,42 +170,28 @@ input {
 }
 
 .dangky {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    display: flex;
     background-color: #b5b5b5;
-    justify-content: center;
-    padding-left: 400px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 250px;
 }
 
-.dangky label {
+.dangky p {
     font-size: 30px;
+    margin-bottom: 0px;
 }
-
-.dangky input {
-    height: 36px;
-    font-size: 30px;
-    margin-left: 200px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.dangky input::placeholder {
-    font-size: 20px;
-    padding-left: 40px;
-    font-style: italic;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.dangky button {
+.dangky a {
     color: black;
     padding: 2px 25px 1px 25px;
     font-weight: bolder;
     font-size: 27px;
     background: #ffc000;
     background-color: #ffc000;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
     font-style: italic;
     border: none;
-    margin: 0px 0px 0px -4px;
     padding-top: 4px;
     padding-bottom: 0px;
 }
@@ -336,42 +325,58 @@ input {
 /* .logo-left{
     margin-left: 100px;
 } */
-.btn-changePassword{
+.btn-changePassword {
     border-radius: 20px;
     font-size: 20px;
 }
-.menu-custom-children{
+.menu-custom-children {
     border-radius: 0px !important;
 }
-.menu-custom{
+.menu-custom {
     margin-top: 80px;
 }
-.avatar{
+.avatar {
     max-width: 180px;
     margin-top: 25px;
 }
-.toast-customed{
+.toast-customed {
     margin-left: 70px;
 }
-.bell-customed{
+.bell-customed {
     font-size: 20px;
 }
-.detail-product{
+.detail-product {
     max-width: 300px;
 }
-.table-img{
+.table-img {
     max-width: 100px;
 }
-.table-td-img{
+.table-td-img {
     margin-left: 15px;
 }
-.shopping-cart-text{
+.shopping-cart-text {
     vertical-align: middle !important;
     text-align: center;
 }
-#btn-delete{
+#btn-delete {
     cursor: pointer;
 }
-.input-number{
+.input-number {
     background-color: rgb(216, 208, 208);
+}
+.top-design{
+    text-align: end;
+}
+.form-order{
+    width: calc(100%/2);
+    margin-top: 50px;
+    border: 1px solid black;
+    border-radius: 9px;
+    padding: 20px;
+}
+.body-order{
+    background-color: rgba(0,0,0, 0.05);
+}
+.error{
+    color: red;
 }

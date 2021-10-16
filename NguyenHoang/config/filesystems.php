@@ -64,7 +64,13 @@ return [
             'root' => storage_path('app/public/Avatar'),
             'url' => env('APP_URL').'/storage/Avatar',
             'visibility' => 'public',
-        ]
+        ],
+        'ImgOrder' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/ImgOrder'),
+            'url' => env('APP_URL').'/storage/ImgOrder',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

@@ -36,8 +36,24 @@
     </div>
 
     <div>
+        <h3>Link sản phẩm</h3>
+        <p>{{$quanlyorder->link != null ? $quanlyorder->link : 'Chưa có' }}</p>
+    </div>
+
+    <div>
         <h3>Ghi chú</h3>
         <p>{{$quanlyorder->description}}</p>
+    </div>
+
+    <div>
+        <h3>Ảnh sản phẩm</h3>
+        @if (!empty($quanlyorder->img))
+        <p><img src="{{ Storage::disk('ImgOrder')->url($quanlyorder->img) }}" alt=""></p>
+            
+        @else
+        <p>Chưa có</p>
+        @endif
+        
     </div>
 
 

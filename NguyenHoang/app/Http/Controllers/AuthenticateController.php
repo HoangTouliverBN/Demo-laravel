@@ -24,7 +24,7 @@ class AuthenticateController extends Controller
         $request->validate([
             'email' => ['required', 'email', 'unique:users,email'],
             'name' => ['required'],
-            'password' => ['required'],
+            'password' => ['required','min:8'],
         ]);
         User::create(array_merge($request->input(), [
             'id_phanquyen' => 1,

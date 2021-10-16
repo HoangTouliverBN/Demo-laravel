@@ -1,11 +1,8 @@
 <footer>
     <div class="dangky">
-<form action="home/order" method="POST">
-    @csrf
-    <label for="dk">ĐĂNG KÍ MUA SÁCH</label>
-    <input type="text" id="dk" name="name" placeholder="Nhập sản phẩm muốn order">
-    <button type="submit">Đăng ký</button>
-</form>
+            <p>ĐĂNG KÝ MUA SÁCH</p>
+            <p><a href="order">Đăng ký</a></p>
+        </form>
     </div>
     <div class="container">
         <div class="contact row">

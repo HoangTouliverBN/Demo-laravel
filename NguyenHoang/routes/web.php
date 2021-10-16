@@ -74,7 +74,8 @@ Route::middleware(['auth'])->group(function () {
 
     // order
     Route::middleware(['auth', 'check_infor'])->group(function () {
-        Route::post('home/order', [OrderController::class, 'Order']);
+        Route::get('order',[OrderController::class,'showOrder']);
+        Route::post('order', [OrderController::class, 'Order']);
     });
 
     // Change Password

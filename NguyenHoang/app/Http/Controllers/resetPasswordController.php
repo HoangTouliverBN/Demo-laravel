@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class resetPasswordController extends Controller
 {
@@ -45,6 +46,6 @@ class resetPasswordController extends Controller
         if ($password !== null) {
             return view('login-register.resetPassword', compact('token'));
         }
-        return redirect('/')->with('message', 'Liên kết của bạn đến trang web không tồn tại hoặc đã bị gỡ');
+        return redirect($token);
     }
 }

@@ -10,17 +10,37 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function showOrder()
+    {
+        return view('web.order');
+    }
     public function Order(Request $request)
     {
+        $user_id = Auth::user()->id;
         $request->validate([
             'name' => 'required',
+            'description' => 'required',
+            'img' => 'image',
         ]);
+        $fileCheck = $request->hasFile('img');
+        if ($fileCheck) {
+            $file = $request->file('img');
+            $fileName = $file->getClientOriginalName();
+            $Order = [
+                'img' => $fileName,
+                'user_id' => $user_id,
 
-        $user_id = Auth::user()->id;
-
-        $order = Order::create(array_merge($request->input(), [
-            'user_id' => $user_id,
-        ]));
+            ];
+            $order = Order::create(array_merge($request->input(), $Order));
+        } else {
+            $Order = [
+                'user_id' => $user_id,
+            ];
+            $order = Order::create(array_merge($request->input(), $Order));
+        }
+        if ($fileCheck && $order) {
+            $file->storeAS('', $fileName, 'ImgOrder');
+        }
         return redirect('/')->with('message', 'Đăng ký thành công');
     }
 
@@ -42,24 +62,19 @@ class OrderController extends Controller
     {
         $quanlyorder = Order::find($id);
         $newState = $request->input('state');
-        // dd($quanlyorder);
-
         $check = $quanlyorder->update([
             'state' => $newState
         ]);
-        // dd($check);
-
         return redirect('quanlyorder')->with('message', 'Cập nhật trạng thái đơn hàng thành công');
     }
 
     public function show(Order $quanlyorder)
     {
-
-
+        $id = $quanlyorder->id;
         $quanlyorder = Order::join('users', 'users.id', '=', 'order.user_id')
             ->join('user_information', 'user_information.user_id', '=', 'users.id')
-            ->first(['email', 'order.name', 'user_information.phone_number', 'order.state', 'order.id', 'user_information.address', 'order.description', 'user_information.first_name', 'user_information.last_name']);
-        // dd($quanlyorder);
+            ->where('order.id', $id)
+            ->first(['email', 'order.name', 'user_information.phone_number', 'order.state', 'order.id', 'user_information.address', 'order.description', 'order.img', 'order.link', 'user_information.first_name', 'user_information.last_name']);
         return view('backend.quanlyorder.show', compact('quanlyorder'));
     }
 

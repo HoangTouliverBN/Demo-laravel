@@ -45,7 +45,8 @@ class shoppingCartController extends Controller
     public function index()
     {
         $shoppingCart = shoppingCart::join('sach','sach.STT','=','shopping_cart.sach_id')
-        ->orderBy('id','DESC')
+        ->orderBy('updated_at','DESC')
+        ->where('shopping_cart.state','!=',null)
         ->paginate(9,['shopping_cart.*','sach.TenSach']);
         return view('backend.shoppingCart.index',compact('shoppingCart'));
     }

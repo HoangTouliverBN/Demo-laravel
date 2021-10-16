@@ -15,12 +15,19 @@
 
 .btn-submit {
     border-radius: 40px;
-    font-size: 25px;
+    font-size: 20px;
     width: 150px;
 }
-.btn-request{
-    font-size: 20px;
+.btn-request {
+    font-size: 18px;
 }
-.btn-email-request{
-    
+.div-password {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.resetPassword {
+    text-align: center;
+    height: 300px;
+    padding-top: 50px;
 }

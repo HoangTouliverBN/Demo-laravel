@@ -33,12 +33,10 @@
                                 <td class="shopping-cart-text">{{ $cart->TenSach }}</td>
                                 <td class="shopping-cart-text" id="don_gia_{{ $cart->id }}">{{ $cart->DonGia }}</td>
                                 <td class="shopping-cart-text">
-                                    {{-- <button type="button" id="minus{{ $cart->id }}" class="btn btn-danger"><i class="fas fa-minus-square"></i></button> --}}
                                     <input type="number" class="form-controll input-number"
                                         id="input-number-{{ $cart->id }}" name='so_luong[]' 
-                                        onkeydown="return false"  value="" min="0"
+                                        onkeydown="return false"  value="" min="1"
                                         max="100">
-                                    {{-- <button type="button" id="plus{{ $cart->id }}" class="btn btn-success"><i class="fas fa-plus-square"></i></button> --}}
                                 </td>
                                 <td class="shopping-cart-text"><input id="tong_gia_{{ $cart->id }}" type="number"
                                         disabled value="" name="tong_gia{{ $cart->id }}">
