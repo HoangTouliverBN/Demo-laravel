@@ -24,7 +24,7 @@ class AuthenticateController extends Controller
         $request->validate([
             'email' => ['required', 'email', 'unique:users,email'],
             'name' => ['required'],
-            'password' => ['required','min:8'],
+            'password' => ['required', 'min:8'],
         ]);
         User::create(array_merge($request->input(), [
             'id_phanquyen' => 1,
@@ -73,7 +73,7 @@ class AuthenticateController extends Controller
         $request->validate([
             'email' => ['required', 'email', 'unique:users,email'],
             'name' => ['required'],
-            'password' => ['required'],
+            'password' => ['required', 'min:8'],
         ]);
         User::create(array_merge($request->input(), [
             'id_phanquyen' => 2,
@@ -92,8 +92,8 @@ class AuthenticateController extends Controller
 
         $request->validate([
             'oldPassword' => ['required', new CheckPassword],
-            'Password' => 'required',
-            'rePassword' => ['required', 'same:Password'],
+            'Password' => ['required', 'min:8'],
+            'rePassword' => ['required', 'same:Password',],
         ]);
 
         $newPassword = $request->input('Password');
@@ -111,7 +111,7 @@ class AuthenticateController extends Controller
     {
         // dd($request->input('password'));
         $request->validate([
-            'password' => 'required',
+            'password' => ['required', 'min:8'],
             'confirm-password' => ['required', 'same:password'],
         ]);
         $password = resetPassword::where('token', $token)->first();

@@ -13,7 +13,9 @@
             @error('email')
                 <p class="text-danger">{{$message}}</p>
             @enderror
-
+            @isset($error)
+            <p class="text-danger">{{$error}}</p>
+            @endisset
             <div class="text-center ">
                 <button type="submit" class="btn-submit btn btn-primary btn-request">Gửi xác nhận</button>
             </div>

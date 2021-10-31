@@ -19,7 +19,8 @@
     width: 150px;
 }
 .btn-request {
-    font-size: 18px;
+    font-size: 17px;
+    width: calc(100%/2 - 100px);
 }
 .div-password {
     display: flex;

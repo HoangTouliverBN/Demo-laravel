@@ -25,16 +25,19 @@ class resetPasswordController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        $length = 60;
-        $user = User::where('email', $request->input('email'))->firstOrFail();
-        $passwordReset = resetPassword::updateOrCreate([
+        $token = Str::random(60);
+        $user = User::where('email', $request->input('email'))->first();
+        if($user == null){
+            return view('login-register.emailRequest')->with('error','Tài khoản này chưa được đăng ký');
+        }
+        $passwordReset = resetPassword::updateOrInsert([
             'email' => $user->email,
-        ], [
-            'token' => Str::random($length),
+        ],[
+            'token' => $token,
         ]);
-        // dd($passwordReset->email);
+        // dd($passwordReset);
         if ($passwordReset) {
-            Mail::to($passwordReset->email)->send(new passwordReset($passwordReset->token, $passwordReset->email));
+            Mail::to($user->email)->send(new passwordReset($token, $user->emai));
         }
 
         return redirect('/')->with('message', 'Hãy kiểm tra email của bạn');

@@ -347,6 +347,7 @@ input {
 }
 .detail-product {
     max-width: 300px;
+    max-height: 400px;
 }
 .table-img {
     max-width: 100px;
@@ -364,19 +365,23 @@ input {
 .input-number {
     background-color: rgb(216, 208, 208);
 }
-.top-design{
+.top-design {
     text-align: end;
 }
-.form-order{
-    width: calc(100%/2);
+.form-order {
+    width: calc(100% / 2);
     margin-top: 50px;
     border: 1px solid black;
     border-radius: 9px;
     padding: 20px;
 }
-.body-order{
-    background-color: rgba(0,0,0, 0.05);
+.body-order {
+    background-color: rgba(0, 0, 0, 0.05);
 }
-.error{
+.error {
     color: red;
+}
+.card-product {
+    height: 300px;
+    object-fit: contain;
 }

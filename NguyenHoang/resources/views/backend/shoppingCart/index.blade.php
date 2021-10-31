@@ -4,7 +4,7 @@
     <div class="tab-pane fade show active" id="quanlyorder" role="tabpanel" aria-labelledby="v-pills-home-tab">
         <div>
             <div>
-                <h1 class="text-center">Đơn đăng ký mua hàng</h1>
+                <h1 class="text-center">Quản lý giỏ hàng</h1>
             </div><br>
 
             <table class="table table-bordered ">
