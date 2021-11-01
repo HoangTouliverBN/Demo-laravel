@@ -4,6 +4,7 @@
     <div class="body-order">
         <div class="container d-flex justify-content-center">
             <form action="{{ url('order') }}" method="POST" class="form-order" enctype="multipart/form-data">
+                <h1 class="text-center">Đăng ký mua hàng</h1>
                 @csrf
                 <div class="form-group">
                     <label for="">
@@ -29,8 +30,8 @@
                     <input type="file" name="img" class="form-control">
                     <p class="error">
                         @error('img')
-                        {{$message}}
-                    @enderror
+                            {{ $message }}
+                        @enderror
                     </p>
                 </div>
                 <div class="form-group">
