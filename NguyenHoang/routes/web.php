@@ -30,6 +30,7 @@ Route::get('/', [WebController::class, 'all']);
 Route::get('/home', [WebController::class, 'all']);
 Route::get('home/detail/{detail}', [WebController::class, 'ShowDetail']);
 Route::get('home/{theloai}', [WebController::class, 'ShowAll']);
+Route::get('introduce',[WebController::class,'introduce']);
 
 
 // Search
@@ -70,12 +71,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/shoppingCart/cart', [shoppingCartController::class, 'shoppingCart']);
     Route::get('/addIntoShoppingCart/{sach_id}', [shoppingCartController::class, 'addProduct']);
     Route::get('shoppingCart/delete/{id}', [shoppingCartController::class, 'destroy']);;
-    Route::post('shoppingCart/pay', [financialController::class, 'pay']);
 
     // order
     Route::middleware(['auth', 'check_infor'])->group(function () {
-        Route::get('order',[OrderController::class,'showOrder']);
+        Route::get('order', [OrderController::class, 'showOrder']);
         Route::post('order', [OrderController::class, 'Order']);
+        Route::post('shoppingCart/pay', [financialController::class, 'pay']);
     });
 
     // Change Password

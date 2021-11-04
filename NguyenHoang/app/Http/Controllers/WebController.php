@@ -72,4 +72,8 @@ class WebController extends Controller
         $Sachs = Sach::where('TenSach', 'like', '%' . $search . '%')->paginate(9);
         return view('web.Search', compact('search', 'Sachs'));
     }
+    public function introduce()
+    {
+        return view('web.introduce');
+    }
 }

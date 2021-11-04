@@ -60,7 +60,7 @@
                 <a href="#">Trang chủ</a>
             </li>
             <li>
-                <a href="#">Giới thiệu</a>
+                <a href="introduce">Giới thiệu</a>
             </li>
 
             <li>
